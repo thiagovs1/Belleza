@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Salao de Beleza</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <h1>Salao de Beleza</h1>
+
+    <h2>Cadastrar cliente</h2>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="telefone" placeholder="Telefone">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="senha" placeholder="Senha">
+    <input type="text" id="cpf" placeholder="CPF">
+
+    <button onclick="cadastrarCliente()">Cadastrar</button>
+
+
+    <h2>Clientes cadastrados</h2>
+
+    <button onclick="carregarClientes()">Atualizar lista</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody id="listaClientes"></tbody>
+    </table>
+
+
+    <script>
+
+        const API = "/api/clientes";
+
+
+        async function cadastrarCliente() {
+
+            const nome = document.getElementById("nome").value;
+            const telefone = document.getElementById("telefone").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const cpf = document.getElementById("cpf").value;
+
+
+            const resposta = await fetch(API, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    nome: nome,
+                    telefone: telefone,
+                    email: email,
+                    senha: senha,
+                    cpf: cpf
+                })
+            });
+
+
+            if (!resposta.ok) {
+
+    const erro = await resposta.text();
+
+    console.error("STATUS:", resposta.status);
+    console.error("ERRO DO SERVIDOR:", erro);
+
+    alert(
+        "Erro ao cadastrar cliente!\n\n" +
+        "Código: " + resposta.status + "\n\n" +
+        "Detalhes: " + erro
+    );
+
+    return;
+}
+
+
+            alert("Cliente cadastrado com sucesso!");
+
+
+            document.getElementById("nome").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("senha").value = "";
+            document.getElementById("cpf").value = "";
+
+        }
+
+
+        async function carregarClientes() {
+
+            const resposta = await fetch(API);
+
+            const clientes = await resposta.json();
+
+            const tabela = document.getElementById("listaClientes");
+
+            tabela.innerHTML = "";
+
+
+            clientes.forEach(c => {
+
+                const linha = document.createElement("tr");
+
+                linha.innerHTML =
+                    "<td>" + c.id + "</td>" +
+                    "<td>" + c.nome + "</td>" +
+                    "<td>" + c.telefone + "</td>" +
+                    "<td>" + c.email + "</td>";
+
+                tabela.appendChild(linha);
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
