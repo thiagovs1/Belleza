@@ -30,3 +30,17 @@ CREATE TABLE Agendamento (
     CONSTRAINT FK_Agendamentos_Servico FOREIGN KEY (idServico) REFERENCES Servico(id)
    
 );
+
+CREATE TABLE Usuario (
+
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    nome VARCHAR(100) NOT NULL,
+
+    email VARCHAR(100) NOT NULL UNIQUE,
+
+    senha VARCHAR(255) NOT NULL,
+
+    tipo_usuario VARCHAR(20) NOT NULL DEFAULT 'Cliente'
+
+);

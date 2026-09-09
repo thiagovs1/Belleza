@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Belleza</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            background:
+                linear-gradient(
+                    rgba(60, 50, 48, 0.40),
+                    rgba(60, 50, 48, 0.40)
+                ),
+                url("imagens/salao_belleza.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* ==============================
+           CARD
+        ============================== */
+
+        .login-card {
+            width: 495px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-radius: 7px;
+
+            padding: 25px 50px 18px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.20);
+        }
+
+
+        /* ==============================
+           LOGO
+        ============================== */
+
+        .logo-area {
+            text-align: center;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+
+            object-fit: contain;
+
+            display: block;
+
+            margin: 0 auto 2px;
+        }
+
+        .logo-area h1 {
+            font-size: 29px;
+
+            font-weight: normal;
+
+            color: #352a27;
+
+            margin: 0;
+        }
+
+        .subtitulo {
+            font-size: 13px;
+
+            color: #ce9997;
+
+            letter-spacing: 0.5px;
+
+            margin-top: 0;
+        }
+
+
+        /* LINHAS DECORATIVAS */
+
+        .linha {
+            width: 178px;
+
+            height: 3px;
+
+            margin: 4px auto 0;
+
+            position: relative;
+
+            background: transparent;
+        }
+
+        .linha::before,
+        .linha::after {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            width: 80px;
+
+            height: 3px;
+
+            background: #ce9997;
+        }
+
+        .linha::before {
+            left: 0;
+        }
+
+        .linha::after {
+            right: 0;
+        }
+
+
+        /* ==============================
+           TEXTO
+        ============================== */
+
+        .texto-login {
+            text-align: center;
+
+            color: #4f4643;
+
+            font-size: 12px;
+
+            margin-top: 27px;
+
+            margin-bottom: 37px;
+        }
+
+
+        /* ==============================
+           CAMPOS
+        ============================== */
+
+        .campo {
+            margin-bottom: 21px;
+        }
+
+        .campo label {
+            display: block;
+
+            color: #403734;
+
+            font-size: 12px;
+
+            margin-bottom: 2px;
+        }
+
+        .campo input {
+            width: 100%;
+
+            height: 16px;
+
+            border: 1px solid #8f8987;
+
+            border-radius: 1px;
+
+            background: white;
+
+            padding: 1px 4px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 11px;
+
+            outline: none;
+        }
+
+        .campo input:focus {
+            border-color: #ce9997;
+        }
+
+        .campo input::placeholder {
+            color: #77716f;
+        }
+
+
+        /* ==============================
+           ESQUECI SENHA
+        ============================== */
+
+        .esqueci {
+            text-align: right;
+
+            margin-top: -15px;
+
+            margin-bottom: 17px;
+        }
+
+        .esqueci a {
+            color: #ce9997;
+
+            font-size: 11px;
+
+            text-decoration: underline;
+        }
+
+
+        /* ==============================
+           BOTÃO ENTRAR
+        ============================== */
+
+        .btn-entrar {
+            width: 100%;
+
+            height: 18px;
+
+            border: none;
+
+            border-radius: 2px;
+
+            background: #ce9997;
+
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 11px;
+
+            cursor: pointer;
+        }
+
+        .btn-entrar:hover {
+            background: #b98583;
+        }
+
+
+        /* ==============================
+           OU
+        ============================== */
+
+        .ou {
+            text-align: center;
+
+            margin: 17px 0 16px;
+        }
+
+        .ou span {
+            color: #403734;
+
+            font-size: 12px;
+        }
+
+
+        /* ==============================
+           CRIAR CONTA
+        ============================== */
+
+        .btn-criar {
+            width: 100%;
+
+            height: 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid #ce9997;
+
+            border-radius: 2px;
+
+            background: white;
+
+            color: #ce9997;
+
+            font-size: 11px;
+
+            text-decoration: none;
+        }
+
+        .btn-criar:hover {
+            background: #ce9997;
+
+            color: white;
+        }
+
+
+        /* ==============================
+           FRASE
+        ============================== */
+
+        .frase {
+            text-align: center;
+
+            color: #716865;
+
+            font-size: 11px;
+
+            margin-top: 38px;
+        }
+
+
+        /* ==============================
+           RESPONSIVO
+        ============================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .login-card {
+                width: 100%;
+
+                padding: 25px 30px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="login-card">
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <img
+                src="imagens/logo_belleza.png"
+                alt="Logo Belleza"
+                class="logo"
+            >
+
+            <h1>Belleza</h1>
+
+            <p class="subtitulo">
+                SALÃO DE BELEZA
+            </p>
+
+            <div class="linha"></div>
+
+        </div>
+
+
+        <!-- TEXTO -->
+
+        <p class="texto-login">
+            Faça login para continuar
+        </p>
+
+
+        <!-- FORMULÁRIO -->
+
+        <form action="#" method="post">
+
+            <!-- E-MAIL -->
+
+            <div class="campo">
+
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+            </div>
+
+
+            <!-- SENHA -->
+
+            <div class="campo">
+
+                <label for="senha">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    name="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+            </div>
+
+
+            <!-- ESQUECI SENHA -->
+
+            <div class="esqueci">
+
+                <a href="esqueceu-senha.html">
+                    Esqueci minha senha
+                </a>
+
+            </div>
+
+
+            <!-- ENTRAR -->
+
+            <button
+                type="submit"
+                class="btn-entrar">
+
+                Entrar
+
+            </button>
+
+
+            <!-- OU -->
+
+            <div class="ou">
+
+                <span>ou</span>
+
+            </div>
+
+
+            <!-- CRIAR CONTA -->
+
+            <a href="cadastro-cliente.html" class="btn-criar">
+             Criar conta
+            </a>
+        </form>
+
+
+        <!-- FRASE -->
+
+        <p class="frase">
+            Realce sua beleza. Revele sua essência.
+        </p>
+
+    </main>
+
+</body>
+
+</html>
