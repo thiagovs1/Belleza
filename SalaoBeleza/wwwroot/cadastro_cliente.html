@@ -2,339 +2,23 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Criar Conta - Belleza</title>
 
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-
-            font-family: Georgia, "Times New Roman", serif;
-
-            background:
-                linear-gradient(
-                    rgba(60, 50, 48, 0.40),
-                    rgba(60, 50, 48, 0.40)
-                ),
-                url("imagens/salao_belleza.png");
-
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-
-        /* ==============================
-           CARD
-        ============================== */
-
-        .cadastro-card {
-            width: 445px;
-
-            background: rgba(255, 255, 255, 0.97);
-
-            border-radius: 7px;
-
-            padding: 25px 33px 18px;
-
-            box-shadow:
-                0 10px 35px rgba(0, 0, 0, 0.20);
-        }
-
-
-        /* ==============================
-           LOGO
-        ============================== */
-
-        .logo-area {
-            text-align: center;
-        }
-
-        .logo {
-            width: 65px;
-            height: 65px;
-
-            object-fit: contain;
-
-            display: block;
-
-            margin: 0 auto 2px;
-        }
-
-        .logo-area h1 {
-            font-size: 29px;
-
-            font-weight: normal;
-
-            color: #352a27;
-
-            margin: 0;
-        }
-
-        .subtitulo {
-            font-size: 13px;
-
-            color: #ce9997;
-
-            letter-spacing: 0.5px;
-
-            margin-top: 0;
-        }
-
-
-        /* ==============================
-           LINHAS
-        ============================== */
-
-        .linha {
-            width: 178px;
-
-            height: 3px;
-
-            margin: 4px auto 0;
-
-            position: relative;
-        }
-
-        .linha::before,
-        .linha::after {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-
-            width: 80px;
-
-            height: 3px;
-
-            background: #ce9997;
-        }
-
-        .linha::before {
-            left: 0;
-        }
-
-        .linha::after {
-            right: 0;
-        }
-
-
-        /* ==============================
-           TÍTULO
-        ============================== */
-
-        .titulo {
-            text-align: center;
-
-            color: #ce9997;
-
-            font-size: 16px;
-
-            font-weight: normal;
-
-            margin-top: 17px;
-        }
-
-        .descricao {
-            text-align: center;
-
-            color: #403734;
-
-            font-size: 11px;
-
-            margin-top: 17px;
-
-            margin-bottom: 17px;
-        }
-
-
-        /* ==============================
-           CAMPOS
-        ============================== */
-
-        .campo {
-            margin-bottom: 19px;
-        }
-
-        .campo label {
-            display: block;
-
-            color: #403734;
-
-            font-size: 12px;
-
-            margin-bottom: 2px;
-        }
-
-        .campo input {
-            width: 100%;
-
-            height: 16px;
-
-            border: 1px solid #8f8987;
-
-            border-radius: 1px;
-
-            background: white;
-
-            padding: 1px 4px;
-
-            font-family: Georgia, "Times New Roman", serif;
-
-            font-size: 11px;
-
-            outline: none;
-        }
-
-        .campo input:focus {
-            border-color: #ce9997;
-        }
-
-        .campo input::placeholder {
-            color: #77716f;
-        }
-
-
-        /* ==============================
-           LEMBRAR-ME
-        ============================== */
-
-        .lembrar {
-            display: flex;
-
-            align-items: center;
-
-            gap: 4px;
-
-            margin-top: -5px;
-
-            margin-bottom: 17px;
-        }
-
-        .lembrar input {
-            width: 11px;
-            height: 11px;
-
-            accent-color: #ce9997;
-        }
-
-        .lembrar label {
-            font-size: 11px;
-
-            color: #665956;
-        }
-
-
-        /* ==============================
-           BOTÃO
-        ============================== */
-
-        .btn-criar {
-            width: 100%;
-
-            height: 19px;
-
-            border: none;
-
-            border-radius: 2px;
-
-            background: #ce9997;
-
-            color: white;
-
-            font-family: Georgia, "Times New Roman", serif;
-
-            font-size: 11px;
-
-            cursor: pointer;
-        }
-
-        .btn-criar:hover {
-            background: #b98583;
-        }
-
-
-        /* ==============================
-           OU
-        ============================== */
-
-        .ou {
-            text-align: center;
-
-            color: #403734;
-
-            font-size: 12px;
-
-            margin: 13px 0;
-        }
-
-
-        /* ==============================
-           LOGIN
-        ============================== */
-
-        .login-existente {
-            text-align: center;
-
-            font-size: 11px;
-
-            color: #665956;
-        }
-
-        .login-existente a {
-            color: #ce9997;
-
-            text-decoration: none;
-        }
-
-        .login-existente a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* ==============================
-           RESPONSIVIDADE
-        ============================== */
-
-        @media (max-width: 600px) {
-
-            body {
-                padding: 20px;
-            }
-
-            .cadastro-card {
-                width: 100%;
-
-                padding: 25px 28px 18px;
-            }
-
-        }
-
-    </style>
+   <link rel="stylesheet"
+        href="cadastro_cliente.css">
 
 </head>
-
 
 <body>
 
     <main class="cadastro-card">
-
-
-        <!-- LOGO -->
 
         <div class="logo-area">
 
@@ -354,9 +38,6 @@
 
         </div>
 
-
-        <!-- TÍTULO -->
-
         <h2 class="titulo">
             Criar conta
         </h2>
@@ -365,13 +46,23 @@
             Preencha os dados abaixo para criar sua conta.
         </p>
 
+        <form id="formCadastro">
 
-        <!-- FORMULÁRIO -->
+            <div class="campo">
 
-        <form action="#" method="post">
+                <label for="nome">
+                    Nome Completo:
+                </label>
 
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite seu nome completo"
+                    required
+                >
 
-            <!-- E-MAIL -->
+            </div>
 
             <div class="campo">
 
@@ -389,9 +80,6 @@
 
             </div>
 
-
-            <!-- TELEFONE -->
-
             <div class="campo">
 
                 <label for="telefone">
@@ -408,13 +96,10 @@
 
             </div>
 
-
-            <!-- SENHA -->
-
             <div class="campo">
 
                 <label for="senha">
-                    Senha
+                    Senha:
                 </label>
 
                 <input
@@ -426,9 +111,6 @@
                 >
 
             </div>
-
-
-            <!-- CONFIRMAR SENHA -->
 
             <div class="campo">
 
@@ -446,9 +128,6 @@
 
             </div>
 
-
-            <!-- LEMBRAR-ME -->
-
             <div class="lembrar">
 
                 <input
@@ -463,9 +142,6 @@
 
             </div>
 
-
-            <!-- BOTÃO -->
-
             <button
                 type="submit"
                 class="btn-criar">
@@ -474,27 +150,228 @@
 
             </button>
 
-
-            <!-- OU -->
-
             <div class="ou">
                 ou
             </div>
 
+            <p class="login-existente">
 
-            <!-- LOGIN -->
-              <p class="login-existente">
-            Já tem uma conta?
-            <a href="login_cliente.html">
-        Fazer login
-            </a>
-</p>
+                Já tem uma conta?
+
+                <a href="login_cliente.html">
+                    Fazer login
+                </a>
+
             </p>
-
 
         </form>
 
     </main>
+
+    <script>
+
+        const form =
+            document.getElementById("formCadastro");
+
+
+        form.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const nome =
+                    document
+                        .getElementById("nome")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                const telefone =
+                    document
+                        .getElementById("telefone")
+                        .value
+                        .trim();
+
+
+                const senha =
+                    document
+                        .getElementById("senha")
+                        .value;
+
+
+                const confirmarSenha =
+                    document
+                        .getElementById("confirmar-senha")
+                        .value;
+
+
+                if (nome === "") {
+
+                    alert(
+                        "Digite seu nome."
+                    );
+
+                    return;
+
+                }
+
+
+                if (email === "") {
+
+                    alert(
+                        "Digite seu e-mail."
+                    );
+
+                    return;
+
+                }
+
+
+                if (telefone === "") {
+
+                    alert(
+                        "Digite seu telefone."
+                    );
+
+                    return;
+
+                }
+
+
+                if (telefone.length < 11) {
+
+                    alert(
+                        "Digite um telefone válido."
+                    );
+
+                    return;
+
+                }
+
+
+                if (senha === "") {
+
+                    alert(
+                        "Digite uma senha."
+                    );
+
+                    return;
+
+                }
+
+
+                if (senha !== confirmarSenha) {
+
+                    alert(
+                        "As senhas não são iguais."
+                    );
+
+                    return;
+
+                }
+
+
+                try {
+
+                    const resposta =
+                        await fetch(
+                            "/api/clientes",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+
+                                        nome: nome,
+
+                                        telefone:
+                                            telefone,
+
+                                        email: email,
+
+                                        senha: senha,
+
+                                        cpf: null
+
+                                    })
+
+                            }
+                        );
+
+
+                    if (!resposta.ok) {
+
+                        const texto =
+                            await resposta.text();
+
+                        let mensagem =
+                            "Não foi possível criar a conta.";
+
+                        try {
+
+                            const dados =
+                                JSON.parse(texto);
+
+                            if (dados.erro) {
+
+                                mensagem =
+                                    dados.erro;
+
+                            }
+
+                        }
+                        catch {
+
+                        }
+
+                        alert(mensagem);
+
+                        return;
+
+                    }
+
+
+                    alert(
+                        "Conta criada com sucesso!"
+                    );
+
+
+                    window.location.href =
+                        "login_cliente.html";
+
+                }
+                catch (erro) {
+
+                    console.error(
+                        "Erro:",
+                        erro
+                    );
+
+                    alert(
+                        "Não foi possível conectar com o servidor."
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
 
 </body>
 

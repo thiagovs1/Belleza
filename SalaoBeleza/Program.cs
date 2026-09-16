@@ -38,10 +38,13 @@ app.UseSwaggerUI();
 
 app.UseCors("Liberado");
 
-app.UseDefaultFiles();
+app.UseDefaultFiles(new DefaultFilesOptions
+{
+    DefaultFileNames = new List<string> { "login_cliente.html" }
+});
+
 app.UseStaticFiles();
 
 app.MapControllers();
 
 app.Run();
-

@@ -12,16 +12,9 @@ body {
     color: #4d2937;
 }
 
-
-/* ========================================
-   MENU LATERAL
-======================================== */
-
 .sidebar {
     width: 190px;
     min-height: 100vh;
-
-    /* menu_belleza.png como FUNDO */
     background-image: url("imagens/menu_belleza.png");
     background-size: cover;
     background-position: center;
@@ -37,8 +30,6 @@ body {
     overflow: hidden;
 }
 
-
-/* Camada transparente sobre a imagem */
 .sidebar::before {
     content: "";
 
@@ -54,19 +45,12 @@ body {
     z-index: 0;
 }
 
-
-/* Tudo dentro da barra fica acima do fundo */
 .logo-area,
 .linha-logo,
 .menu {
     position: relative;
     z-index: 1;
 }
-
-
-/* ========================================
-   LOGO BELLEZA
-======================================== */
 
 .logo-area {
     width: 100%;
@@ -90,11 +74,6 @@ body {
     display: block;
 }
 
-
-/* ========================================
-   LINHA ABAIXO DA LOGO
-======================================== */
-
 .linha-logo {
     height: 4px;
 
@@ -104,11 +83,6 @@ body {
 
     margin: 0 auto 8px;
 }
-
-
-/* ========================================
-   MENU
-======================================== */
 
 .menu {
     display: flex;
@@ -169,11 +143,6 @@ body {
     margin-top: 5px;
 }
 
-
-/* ========================================
-   CONTEÚDO
-======================================== */
-
 .conteudo {
     margin-left: 190px;
 
@@ -194,11 +163,6 @@ body {
 
     margin-bottom: 22px;
 }
-
-
-/* ========================================
-   CADASTRO
-======================================== */
 
 .cadastro {
     width: 330px;
@@ -294,11 +258,6 @@ body {
     box-shadow: 0 0 2px rgba(143, 61, 94, 0.4);
 }
 
-
-/* ========================================
-   BOTÃO CADASTRAR
-======================================== */
-
 .btn-cadastrar {
     height: 25px;
 
@@ -331,11 +290,6 @@ body {
 .btn-cadastrar:hover {
     background: #75304c;
 }
-
-
-/* ========================================
-   CLIENTES
-======================================== */
 
 .clientes {
     margin-top: 40px;
@@ -371,11 +325,6 @@ body {
 
     overflow-x: auto;
 }
-
-
-/* ========================================
-   TABELA
-======================================== */
 
 table {
     width: 100%;
@@ -429,11 +378,6 @@ tbody tr:hover {
     background: #fff8fa;
 }
 
-
-/* ========================================
-   TAMANHO DAS COLUNAS
-======================================== */
-
 th:nth-child(1),
 td:nth-child(1) {
     width: 15%;
@@ -457,11 +401,6 @@ td:nth-child(4) {
     width: 30%;
 }
 
-
-/* ========================================
-   NENHUM CLIENTE
-======================================== */
-
 .nenhum {
     height: 45px;
 
@@ -471,11 +410,6 @@ td:nth-child(4) {
 
     font-family: Georgia, serif;
 }
-
-
-/* ========================================
-   RESPONSIVIDADE
-======================================== */
 
 @media (max-width: 900px) {
 

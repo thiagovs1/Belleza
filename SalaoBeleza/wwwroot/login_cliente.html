@@ -36,11 +36,6 @@
             align-items: center;
         }
 
-
-        /* ==============================
-           CARD
-        ============================== */
-
         .login-card {
             width: 495px;
 
@@ -53,11 +48,6 @@
             box-shadow:
                 0 10px 35px rgba(0, 0, 0, 0.20);
         }
-
-
-        /* ==============================
-           LOGO
-        ============================== */
 
         .logo-area {
             text-align: center;
@@ -94,9 +84,6 @@
             margin-top: 0;
         }
 
-
-        /* LINHAS DECORATIVAS */
-
         .linha {
             width: 178px;
 
@@ -132,11 +119,6 @@
             right: 0;
         }
 
-
-        /* ==============================
-           TEXTO
-        ============================== */
-
         .texto-login {
             text-align: center;
 
@@ -148,11 +130,6 @@
 
             margin-bottom: 37px;
         }
-
-
-        /* ==============================
-           CAMPOS
-        ============================== */
 
         .campo {
             margin-bottom: 21px;
@@ -196,11 +173,6 @@
             color: #77716f;
         }
 
-
-        /* ==============================
-           ESQUECI SENHA
-        ============================== */
-
         .esqueci {
             text-align: right;
 
@@ -216,11 +188,6 @@
 
             text-decoration: underline;
         }
-
-
-        /* ==============================
-           BOTÃO ENTRAR
-        ============================== */
 
         .btn-entrar {
             width: 100%;
@@ -246,11 +213,6 @@
             background: #b98583;
         }
 
-
-        /* ==============================
-           OU
-        ============================== */
-
         .ou {
             text-align: center;
 
@@ -262,11 +224,6 @@
 
             font-size: 12px;
         }
-
-
-        /* ==============================
-           CRIAR CONTA
-        ============================== */
 
         .btn-criar {
             width: 100%;
@@ -290,6 +247,8 @@
             font-size: 11px;
 
             text-decoration: none;
+
+            cursor: pointer;
         }
 
         .btn-criar:hover {
@@ -297,11 +256,6 @@
 
             color: white;
         }
-
-
-        /* ==============================
-           FRASE
-        ============================== */
 
         .frase {
             text-align: center;
@@ -312,11 +266,6 @@
 
             margin-top: 38px;
         }
-
-
-        /* ==============================
-           RESPONSIVO
-        ============================== */
 
         @media (max-width: 600px) {
 
@@ -336,12 +285,9 @@
 
 </head>
 
-
 <body>
 
     <main class="login-card">
-
-        <!-- LOGO -->
 
         <div class="logo-area">
 
@@ -361,19 +307,11 @@
 
         </div>
 
-
-        <!-- TEXTO -->
-
         <p class="texto-login">
             Faça login para continuar
         </p>
 
-
-        <!-- FORMULÁRIO -->
-
-        <form action="#" method="post">
-
-            <!-- E-MAIL -->
+        <form action="/api/login" method="post">
 
             <div class="campo">
 
@@ -391,9 +329,6 @@
 
             </div>
 
-
-            <!-- SENHA -->
-
             <div class="campo">
 
                 <label for="senha">
@@ -410,19 +345,13 @@
 
             </div>
 
-
-            <!-- ESQUECI SENHA -->
-
             <div class="esqueci">
 
-                <a href="esqueceu-senha.html">
+                <a href="#">
                     Esqueci minha senha
                 </a>
 
             </div>
-
-
-            <!-- ENTRAR -->
 
             <button
                 type="submit"
@@ -432,25 +361,21 @@
 
             </button>
 
-
-            <!-- OU -->
-
             <div class="ou">
 
                 <span>ou</span>
 
             </div>
 
+            <a
+                href="cadastro_cliente.html"
+                class="btn-criar">
 
-            <!-- CRIAR CONTA -->
+                Criar conta
 
-            <a href="cadastro-cliente.html" class="btn-criar">
-             Criar conta
             </a>
+
         </form>
-
-
-        <!-- FRASE -->
 
         <p class="frase">
             Realce sua beleza. Revele sua essência.
@@ -458,6 +383,28 @@
 
     </main>
 
+    <script>
+
+        const parametros =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        if (parametros.get("erro") === "1") {
+
+            alert("E-mail ou senha inválidos.");
+
+            window.history.replaceState(
+                {},
+                document.title,
+                "login_cliente.html"
+            );
+
+        }
+
+    </script>
+
 </body>
 
 </html>
+

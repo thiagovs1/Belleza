@@ -47,6 +47,20 @@ public class ClienteService
         if (string.IsNullOrWhiteSpace(dto.Nome))
             throw new Exception("O nome é obrigatório.");
 
+        if (string.IsNullOrWhiteSpace(dto.Email))
+            throw new Exception("O e-mail é obrigatório.");
+
+        if (string.IsNullOrWhiteSpace(dto.Telefone))
+            throw new Exception("O telefone é obrigatório.");
+
+        if (string.IsNullOrWhiteSpace(dto.Senha))
+            throw new Exception("A senha é obrigatória.");
+
+        var clienteExistente = await _repo.BuscarPorEmail(dto.Email);
+
+        if (clienteExistente != null)
+            throw new Exception("Este e-mail já está cadastrado.");
+
         var cliente = new Cliente
         {
             Nome = dto.Nome,
@@ -63,6 +77,24 @@ public class ClienteService
             criado.Nome,
             criado.Telefone,
             criado.Email
+        );
+    }
+
+    public async Task<ClienteRespostaDTO?> Login(string email, string senha)
+    {
+        var cliente = await _repo.BuscarPorEmail(email);
+
+        if (cliente == null)
+            return null;
+
+        if (cliente.Senha != senha)
+            return null;
+
+        return new ClienteRespostaDTO(
+            cliente.Id,
+            cliente.Nome,
+            cliente.Telefone,
+            cliente.Email
         );
     }
 

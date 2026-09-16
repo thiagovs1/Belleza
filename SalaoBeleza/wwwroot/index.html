@@ -21,15 +21,8 @@
 
 <body>
 
-
-    <!-- ========================================
-         MENU LATERAL
-    ========================================= -->
-
     <aside class="sidebar">
 
-
-        <!-- LOGO BELLEZA -->
 
         <div class="logo-area">
 
@@ -42,9 +35,6 @@
 
 
         <div class="linha-logo"></div>
-
-
-        <!-- MENU -->
 
         <nav class="menu">
 
@@ -143,19 +133,10 @@
 
     </aside>
 
-
-
-    <!-- ========================================
-         CONTEÚDO PRINCIPAL
-    ========================================= -->
-
     <main class="conteudo">
 
 
         <h1>Cadastro de Clientes</h1>
-
-
-        <!-- CADASTRO -->
 
         <section class="cadastro">
 
@@ -176,9 +157,6 @@
 
             <div class="formulario">
 
-
-                <!-- NOME -->
-
                 <div class="campo">
 
                     <label for="nome">
@@ -192,10 +170,6 @@
                         id="nome">
 
                 </div>
-
-
-
-                <!-- E-MAIL -->
 
                 <div class="campo">
 
@@ -211,10 +185,6 @@
 
                 </div>
 
-
-
-                <!-- TELEFONE -->
-
                 <div class="campo">
 
                     <label for="telefone">
@@ -228,10 +198,6 @@
                         id="telefone">
 
                 </div>
-
-
-
-                <!-- SENHA -->
 
                 <div class="campo">
 
@@ -247,10 +213,6 @@
 
                 </div>
 
-
-
-                <!-- BOTÃO -->
-
                 <button
                     class="btn-cadastrar"
                     onclick="cadastrarCliente()">
@@ -265,10 +227,6 @@
             </div>
 
         </section>
-
-
-
-        <!-- CLIENTES CADASTRADOS -->
 
         <section class="clientes">
 
@@ -332,22 +290,10 @@
 
     </main>
 
-
-
-    <!-- ========================================
-         JAVASCRIPT
-    ========================================= -->
-
     <script>
 
 
         const API = "/api/clientes";
-
-
-
-        // ========================================
-        // CADASTRAR CLIENTE
-        // ========================================
 
         async function cadastrarCliente() {
 
@@ -383,10 +329,6 @@
             const nomeValido =
                 /^[A-Za-zÀ-ÿ\s]+$/;
 
-
-
-            // VALIDAR NOME
-
             if (nome === "") {
 
                 alert(
@@ -410,10 +352,6 @@
 
             }
 
-
-
-            // VALIDAR TELEFONE
-
             if (!/^\d+$/.test(telefone)) {
 
                 alert(
@@ -435,10 +373,6 @@
                 return;
 
             }
-
-
-
-            // VALIDAR E-MAIL
 
             if (
                 !email.includes("@") ||
@@ -534,10 +468,6 @@
                     "Cliente cadastrado com sucesso!"
                 );
 
-
-
-                // LIMPAR CAMPOS
-
                 document
                     .getElementById("nome")
                     .value = "";
@@ -556,10 +486,6 @@
                 document
                     .getElementById("senha")
                     .value = "";
-
-
-
-                // ATUALIZAR TABELA
 
                 carregarClientes();
 
@@ -583,12 +509,6 @@
             }
 
         }
-
-
-
-        // ========================================
-        // CARREGAR CLIENTES
-        // ========================================
 
         async function carregarClientes() {
 
@@ -703,10 +623,6 @@
                     }
                 );
 
-
-
-                // NENHUM CLIENTE
-
                 if (clientes.length === 0) {
 
 
@@ -748,10 +664,6 @@
             }
 
         }
-
-
-
-        // CARREGAR AO ABRIR A PÁGINA
 
         carregarClientes();
 
