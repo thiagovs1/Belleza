@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agendar horário - Belleza</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="agendar_horario.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <aside class="menu-lateral">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-area">
+
+            <img
+                src="imagens/logo_belleza.png"
+                alt="Logo Belleza"
+            >
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <nav class="menu">
+
+
+            <!-- INÍCIO -->
+
+            <a
+                href="tela_inicial.html"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-solid fa-house"></i>
+                </span>
+
+                <span>
+                    Início
+                </span>
+
+            </a>
+
+
+            <!-- SERVIÇOS -->
+
+            <a
+                href="servicos.html"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-solid fa-scissors"></i>
+                </span>
+
+                <span>
+                    Serviços
+                </span>
+
+            </a>
+
+
+            <!-- PROFISSIONAIS -->
+
+            <a
+                href="profissionais.html"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-solid fa-people-group"></i>
+                </span>
+
+                <span>
+                    Profissionais
+                </span>
+
+            </a>
+
+
+            <!-- AGENDAR -->
+
+            <a
+                href="agendar_horario.html"
+                class="menu-item ativo"
+            >
+
+                <span class="icone">
+                    <i class="fa-regular fa-calendar"></i>
+                </span>
+
+                <span>
+                    Agendar horário
+                </span>
+
+            </a>
+
+
+            <!-- MEUS AGENDAMENTOS -->
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </span>
+
+                <span>
+                    Meus agendamentos
+                </span>
+
+            </a>
+
+
+            <!-- PROMOÇÕES -->
+
+            <a
+                href="pagina_promocao.html"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-solid fa-tag"></i>
+                </span>
+
+                <span>
+                    Promoções
+                </span>
+
+            </a>
+
+
+            <!-- AVALIAÇÕES -->
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-regular fa-star"></i>
+                </span>
+
+                <span>
+                    Avaliações
+                </span>
+
+            </a>
+
+
+            <!-- MINHA CONTA -->
+
+            <a
+                href="#"
+                class="menu-item"
+            >
+
+                <span class="icone">
+                    <i class="fa-regular fa-circle-user"></i>
+                </span>
+
+                <span>
+                    Minha Conta
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SAIR -->
+
+        <a
+            href="login_cliente.html"
+            class="menu-item sair"
+        >
+
+            <span class="icone">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </span>
+
+            <span>
+                Sair
+            </span>
+
+        </a>
+
+
+        <!-- IMAGEM DO SALÃO -->
+
+        <div class="imagem-lateral">
+
+            <img
+                src="imagens/salao_belleza.png"
+                alt="Salão Belleza"
+            >
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- TÍTULO -->
+
+        <h1 class="titulo-pagina">
+            Escolha a data e o horário
+        </h1>
+
+
+
+        <!-- =================================================
+             ÁREA PRINCIPAL
+        ================================================== -->
+
+        <div class="layout-principal">
+
+
+            <!-- =================================================
+                 ÁREA ESQUERDA
+            ================================================== -->
+
+            <div class="area-esquerda">
+
+
+                <!-- CABEÇALHO -->
+
+                <div class="cabecalho-calendario">
+
+                    Horário e calendário da profissional escolhida
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CALENDÁRIO + HORÁRIOS
+                ================================================== -->
+
+                <div class="area-agendamento">
+
+
+                    <!-- =================================================
+                         CALENDÁRIO
+                    ================================================== -->
+
+                    <section class="calendario">
+
+
+                        <h2>
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            Selecione a data
+
+                        </h2>
+
+
+                        <!-- MÊS -->
+
+                        <div class="mes">
+
+                            <button type="button">
+                                &lt;
+                            </button>
+
+                            <span>
+                                Setembro 2026
+                            </span>
+
+                            <button type="button">
+                                &gt;
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- DIAS DA SEMANA -->
+
+                        <div class="dias-semana">
+
+                            <span>
+                                Su
+                            </span>
+
+                            <span>
+                                Mo
+                            </span>
+
+                            <span>
+                                Tu
+                            </span>
+
+                            <span>
+                                We
+                            </span>
+
+                            <span>
+                                Th
+                            </span>
+
+                            <span>
+                                Fr
+                            </span>
+
+                            <span>
+                                Sa
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- DIAS -->
+
+                        <div class="dias">
+
+
+                            <!-- LINHA 1 -->
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <button class="dia">
+                                1
+                            </button>
+
+
+                            <!-- LINHA 2 -->
+
+                            <button class="dia indisponivel">
+                                6
+                            </button>
+
+                            <button class="dia">
+                                7
+                            </button>
+
+                            <button class="dia disponivel">
+                                8
+                            </button>
+
+                            <button class="dia">
+                                9
+                            </button>
+
+                            <button class="dia">
+                                10
+                            </button>
+
+                            <button class="dia disponivel">
+                                11
+                            </button>
+
+                            <button class="dia">
+                                12
+                            </button>
+
+
+                            <!-- LINHA 3 -->
+
+                            <button class="dia indisponivel">
+                                13
+                            </button>
+
+                            <button class="dia disponivel">
+                                14
+                            </button>
+
+                            <button class="dia">
+                                15
+                            </button>
+
+                            <button class="dia">
+                                16
+                            </button>
+
+                            <button class="dia">
+                                17
+                            </button>
+
+                            <button class="dia">
+                                18
+                            </button>
+
+                            <button class="dia">
+                                19
+                            </button>
+
+
+                            <!-- LINHA 4 -->
+
+                            <button class="dia">
+                                20
+                            </button>
+
+                            <button class="dia">
+                                21
+                            </button>
+
+                            <button class="dia">
+                                22
+                            </button>
+
+                            <button class="dia">
+                                23
+                            </button>
+
+                            <button class="dia">
+                                24
+                            </button>
+
+                            <button class="dia escolhido">
+                                25
+                            </button>
+
+                            <button class="dia">
+                                26
+                            </button>
+
+
+                            <!-- LINHA 5 -->
+
+                            <button class="dia indisponivel">
+                                27
+                            </button>
+
+                            <button class="dia">
+                                28
+                            </button>
+
+                            <button class="dia disponivel">
+                                29
+                            </button>
+
+                            <button class="dia">
+                                30
+                            </button>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+                            <span class="vazio"></span>
+
+
+                        </div>
+
+
+
+                        <!-- LEGENDA -->
+
+                        <div class="legenda-calendario">
+
+
+                            <div>
+
+                                <span class="bolinha roxa"></span>
+
+                                <span>
+                                    Data indisponível
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="bolinha rosa"></span>
+
+                                <span>
+                                    Data escolhida
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="bolinha clara"></span>
+
+                                <span>
+                                    Data Salão fechado
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+
+                    <!-- =================================================
+                         HORÁRIOS
+                    ================================================== -->
+
+                    <section class="horarios">
+
+
+                        <h2>
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            Selecione o horário
+
+                        </h2>
+
+
+
+                        <div class="lista-horarios">
+
+
+                            <button class="horario">
+                                08:00 - 09:00
+                            </button>
+
+
+                            <button class="horario escolhido-horario">
+                                13:00 - 16:30
+                            </button>
+
+
+                            <button class="horario">
+                                09:00 - 10:30
+                            </button>
+
+
+                            <button class="horario">
+                                16:30 - 17:30
+                            </button>
+
+
+                            <button class="horario">
+                                10:30 - 12:30
+                            </button>
+
+
+                            <button class="horario">
+                                17:30 - 18:00
+                            </button>
+
+
+                        </div>
+
+
+
+                        <!-- LEGENDA DOS HORÁRIOS -->
+
+                        <div class="legenda-horarios">
+
+
+                            <div>
+
+                                <span class="bolinha horario-indisponivel"></span>
+
+                                <span>
+                                    horário indisponível
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="bolinha horario-disponivel"></span>
+
+                                <span>
+                                    Horário disponível para esse serviço
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="bolinha horario-escolhido"></span>
+
+                                <span>
+                                    Horário escolhido
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RESUMO
+            ================================================== -->
+
+            <aside class="resumo">
+
+
+                <h2>
+                    Resumo do atendimento
+                </h2>
+
+
+
+                <!-- SERVIÇO -->
+
+                <div class="resumo-item">
+
+
+                    <div class="resumo-icone">
+
+                        <i class="fa-solid fa-scissors"></i>
+
+                    </div>
+
+
+                    <div class="resumo-texto">
+
+                        <span>
+                            Serviço
+                        </span>
+
+                        <strong>
+                            Selecionado
+                        </strong>
+
+                    </div>
+
+
+                    <span class="seta">
+                        ›
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- PROFISSIONAL -->
+
+                <div class="resumo-item">
+
+
+                    <div class="resumo-icone">
+
+                        <i class="fa-solid fa-people-group"></i>
+
+                    </div>
+
+
+                    <div class="resumo-texto">
+
+                        <span>
+                            Profissional
+                        </span>
+
+                        <strong>
+                            Selecionado
+                        </strong>
+
+                    </div>
+
+
+                    <span class="seta">
+                        ›
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- DATA E HORÁRIO -->
+
+                <div class="resumo-item">
+
+
+                    <div class="resumo-icone">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                    </div>
+
+
+                    <div class="resumo-texto">
+
+                        <span>
+                            Data e horário
+                        </span>
+
+                        <strong>
+                            Selecionado
+                        </strong>
+
+                    </div>
+
+
+                    <span class="seta">
+                        ›
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- TOTAL -->
+
+                <div class="total">
+
+                    <span>
+                        Total do atendimento
+                    </span>
+
+                    <strong>
+                        R$ 220,00
+                    </strong>
+
+                </div>
+
+
+
+                <!-- CONTINUAR -->
+
+                <a
+                    href="meus_agendamentos.html"
+                    class="btn-continuar"
+                >
+
+                    continuar
+
+                    <span>
+                        ➜
+                    </span>
+
+                </a>
+
+
+
+                <!-- ADICIONAR SERVIÇOS -->
+
+                <a
+                    href="servicos.html"
+                    class="btn-adicionar"
+                >
+
+                    adicionar mais serviços
+
+                </a>
+
+
+            </aside>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             FRASE DECORATIVA
+        ================================================== -->
+
+        <div class="frase-lateral">
+
+
+            <span>
+                ♥
+            </span>
+
+
+            <p>
+
+                Cuidar de você
+                <br>
+                é sempre uma boa
+                <br>
+                ideia
+
+            </p>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>

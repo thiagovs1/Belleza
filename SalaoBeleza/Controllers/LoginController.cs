@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using SalaoBeleza.Services;
 
@@ -15,17 +16,60 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(
-        [FromForm] string email,
-        [FromForm] string senha)
+    public async Task<IActionResult> Login([FromBody] JsonElement dados)
     {
-        var cliente = await _service.Login(email, senha);
-
-        if (cliente == null)
+        try
         {
-            return Redirect("/login_cliente.html?erro=1");
-        }
+            string email = "";
 
-        return Redirect("/tela_inicial.html");
+            string senha = "";
+
+            if (dados.TryGetProperty("email", out JsonElement emailElement))
+            {
+                email = emailElement.GetString() ?? "";
+            }
+
+            if (dados.TryGetProperty("senha", out JsonElement senhaElement))
+            {
+                senha = senhaElement.GetString() ?? "";
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return BadRequest(new
+                {
+                    mensagem = "O e-mail não foi recebido pelo servidor."
+                });
+            }
+
+            if (string.IsNullOrWhiteSpace(senha))
+            {
+                return BadRequest(new
+                {
+                    mensagem = "A senha não foi recebida pelo servidor."
+                });
+            }
+
+            var cliente = await _service.Login(email, senha);
+
+            if (cliente == null)
+            {
+                return Unauthorized(new
+                {
+                    mensagem = "E-mail ou senha inválidos."
+                });
+            }
+
+            return Ok(cliente);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, new
+            {
+                mensagem = "Erro ao realizar o login.",
+                erro = ex.Message,
+                detalhe = ex.InnerException?.Message
+            });
+        }
     }
 }

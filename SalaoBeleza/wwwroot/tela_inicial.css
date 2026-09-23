@@ -1,0 +1,989 @@
+/* =====================================================
+   CONFIGURAÇÃO GERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+
+    color: #292323;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   MENU LATERAL
+===================================================== */
+
+.menu-lateral {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 213px;
+    height: 100vh;
+
+    background-color: #f8eeee;
+
+    overflow: hidden;
+
+    border-right: 1px solid #eadcdc;
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-area {
+
+    width: calc(100% - 30px);
+
+    height: 122px;
+
+    margin: 0 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-bottom: 3px solid #913e61;
+
+    position: relative;
+}
+
+
+.logo-area::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    bottom: -10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: #f8eeee;
+
+    padding: 0 5px;
+
+    color: #913e61;
+
+    font-size: 13px;
+}
+
+
+.logo-area img {
+
+    width: 145px;
+
+    height: 115px;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    padding-top: 8px;
+}
+
+
+.menu-item {
+
+    width: calc(100% - 8px);
+
+    height: 35px;
+
+    margin: 0 4px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    text-decoration: none;
+
+    color: #91425f;
+
+    font-size: 14px;
+
+    border-radius: 3px;
+
+    transition: 0.2s;
+}
+
+
+.menu-item:hover {
+
+    background-color: #ecdce1;
+}
+
+
+.menu-item.ativo {
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   ÍCONES
+===================================================== */
+
+.icone {
+
+    width: 17px;
+
+    min-width: 17px;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   SAIR
+===================================================== */
+
+.sair {
+
+    margin-top: 25px;
+}
+
+
+/* =====================================================
+   IMAGEM DO SALÃO
+===================================================== */
+
+.imagem-lateral {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 195px;
+
+    overflow: hidden;
+}
+
+
+.imagem-lateral img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.68;
+}
+
+
+/* =====================================================
+   CONTEÚDO PRINCIPAL
+===================================================== */
+
+.conteudo {
+
+    margin-left: 213px;
+
+    padding: 24px 20px;
+
+    min-height: 100vh;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   ÁREA SUPERIOR
+===================================================== */
+
+.area-superior {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(500px, 1fr)
+        250px;
+
+    gap: 25px;
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   BOAS-VINDAS
+===================================================== */
+
+.boas-vindas {
+
+    height: 204px;
+
+    background-color: #fcf6f6;
+
+    border-radius: 4px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 16px;
+}
+
+
+/* =====================================================
+   TEXTO DA ESQUERDA
+===================================================== */
+
+.texto-boas {
+
+    position: absolute;
+
+    left: 16px;
+
+    top: 0;
+
+    padding-top: 25px;
+
+    z-index: 5;
+}
+
+
+.texto-boas h1 {
+
+    color: #91425f;
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    margin-bottom: 9px;
+}
+
+
+.texto-boas h2 {
+
+    color: #91425f;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    margin-bottom: 13px;
+}
+
+
+.texto-boas p {
+
+    font-size: 14px;
+
+    line-height: 21px;
+}
+
+
+/* =====================================================
+   CORAÇÃO
+===================================================== */
+
+.coracao {
+
+    display: block;
+
+    color: #91425f;
+
+    font-size: 18px;
+
+    margin-left: 150px;
+
+    margin-top: -4px;
+}
+
+
+/* =====================================================
+   IMAGEM DA BOAS-VINDAS
+===================================================== */
+
+.imagem-boas {
+
+    position: absolute;
+
+    width: 168px;
+
+    height: 168px;
+
+    /*
+       AQUI A IMAGEM FOI EMPURRADA
+       BEM MAIS PARA A DIREITA
+    */
+
+    left: 500px;
+
+    top: 20px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   FRASE AO LADO DA IMAGEM
+===================================================== */
+
+.frase-boas {
+
+    position: absolute;
+
+    /*
+       FICA AO LADO DIREITO DA FOTO
+    */
+
+    left: 675px;
+
+    top: 20px;
+
+    width: 105px;
+
+    color: #91425f;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+    line-height: 20px;
+
+    text-align: center;
+
+    /*
+       DEIXA A FRASE INCLINADA
+    */
+
+    transform: rotate(-12deg);
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   RAMOS DECORATIVOS
+===================================================== */
+
+.ramo {
+
+    position: absolute;
+
+    color: #91425f;
+
+    font-size: 65px;
+
+    line-height: 1;
+
+    opacity: 0.65;
+
+    z-index: 2;
+}
+
+
+/* RAMO ESQUERDO */
+
+.ramo-esquerdo {
+
+    left: 415px;
+
+    bottom: -8px;
+
+    transform: rotate(-25deg);
+}
+
+
+/* RAMO DIREITO */
+
+.ramo-direito {
+
+    right: 0;
+
+    bottom: -8px;
+
+    transform: rotate(25deg);
+}
+
+
+/* =====================================================
+   PROMOÇÃO
+===================================================== */
+
+.promocao {
+
+    height: 204px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: #91425f;
+
+    color: white;
+
+    border-radius: 3px;
+}
+
+
+.conteudo-promocao {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 42px 8px;
+}
+
+
+.conteudo-promocao h2 {
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+
+.conteudo-promocao h1 {
+
+    font-size: 21px;
+
+    font-weight: 500;
+
+    margin-bottom: 3px;
+}
+
+
+.conteudo-promocao h1 span {
+
+    font-size: 21px;
+}
+
+
+.conteudo-promocao p {
+
+    font-size: 13px;
+
+    line-height: 17px;
+}
+
+
+/* =====================================================
+   BOTÃO DA PROMOÇÃO
+===================================================== */
+
+.btn-promocao {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 6px 9px;
+
+    border: none;
+
+    border-radius: 3px;
+
+    background-color: #f7d9df;
+
+    color: #91425f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.btn-promocao:hover {
+
+    background-color: #ffffff;
+}
+
+
+/* =====================================================
+   IMAGEM DA PROMOÇÃO
+===================================================== */
+
+.imagem-promocao {
+
+    position: absolute;
+
+    right: -8px;
+
+    bottom: 0;
+
+    width: 125px;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   COMBOS
+===================================================== */
+
+.area-combos {
+
+    margin-top: 25px;
+
+    padding-right: 275px;
+}
+
+
+.area-combos h2 {
+
+    color: #91425f;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    margin-bottom: 2px;
+}
+
+
+.descricao-combos {
+
+    font-size: 14px;
+
+    margin-top: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =====================================================
+   LISTA DOS COMBOS
+===================================================== */
+
+.lista-combos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.combo {
+
+    min-width: 0;
+
+    border: 1px solid #eadede;
+
+    border-radius: 5px;
+
+    background-color: #ffffff;
+
+    overflow: hidden;
+
+    padding-bottom: 8px;
+}
+
+
+/* =====================================================
+   IMAGEM DOS CARDS
+===================================================== */
+
+.combo > img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 141px;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.combo h3 {
+
+    color: #91425f;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    padding: 8px 6px 3px;
+}
+
+
+/* =====================================================
+   SERVIÇOS
+===================================================== */
+
+.servicos {
+
+    height: 52px;
+
+    padding: 5px 6px;
+
+    font-size: 13px;
+
+    line-height: 18px;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.informacoes {
+
+    height: 25px;
+
+    padding: 0 6px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background-color: #91425f;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   BOTÃO ADICIONAR
+===================================================== */
+
+.btn-adicionar {
+
+    display: block;
+
+    width: calc(100% - 12px);
+
+    height: 27px;
+
+    margin: 9px 6px 0;
+
+    background-color: #ffffff;
+
+    border: 1px solid #91425f;
+
+    border-radius: 5px;
+
+    color: #91425f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 14px;
+
+    text-align: center;
+
+    line-height: 25px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.btn-adicionar:hover {
+
+    background-color: #91425f;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   FRASE LATERAL
+===================================================== */
+
+.frase-lateral {
+
+    position: absolute;
+
+    top: 246px;
+
+    right: 20px;
+
+    width: 250px;
+
+    height: 168px;
+
+    background-color: #f8eaea;
+
+    color: #91425f;
+
+    text-align: center;
+
+    padding-top: 29px;
+
+    overflow: hidden;
+}
+
+
+/* CORAÇÃO */
+
+.frase-lateral > span {
+
+    font-size: 25px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* TEXTO */
+
+.frase-lateral p {
+
+    margin-top: 10px;
+
+    font-size: 15px;
+
+    font-style: italic;
+
+    line-height: 23px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   DECORAÇÕES
+===================================================== */
+
+.decoracao-flor {
+
+    position: absolute;
+
+    font-size: 70px;
+
+    opacity: 0.55;
+
+    color: #91425f;
+
+    line-height: 1;
+}
+
+
+.decoracao-flor.esquerda {
+
+    left: -3px;
+
+    top: 28px;
+
+    transform: rotate(-25deg);
+}
+
+
+.decoracao-flor.direita {
+
+    right: -5px;
+
+    bottom: -12px;
+
+    transform: rotate(155deg);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .area-superior {
+
+        grid-template-columns:
+            minmax(450px, 1fr)
+            230px;
+
+        gap: 15px;
+    }
+
+
+    .imagem-boas {
+
+        left: 430px;
+    }
+
+
+    .frase-boas {
+
+        left: 605px;
+    }
+
+
+    .ramo-esquerdo {
+
+        left: 345px;
+    }
+
+
+    .area-combos {
+
+        padding-right: 245px;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .menu-lateral {
+
+        width: 190px;
+    }
+
+
+    .conteudo {
+
+        margin-left: 190px;
+
+        padding: 20px 15px;
+    }
+
+
+    .area-superior {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .area-combos {
+
+        padding-right: 0;
+    }
+
+
+    .frase-lateral {
+
+        position: static;
+
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+
+    .imagem-boas {
+
+        left: auto;
+
+        right: 130px;
+    }
+
+
+    .frase-boas {
+
+        left: auto;
+
+        right: 15px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .menu-lateral {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+    }
+
+
+    .imagem-lateral {
+
+        display: none;
+    }
+
+
+    .conteudo {
+
+        margin-left: 0;
+    }
+
+
+    .lista-combos {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .boas-vindas {
+
+        min-height: 204px;
+    }
+
+}

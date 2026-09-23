@@ -1,0 +1,1176 @@
+/* =====================================================
+   CONFIGURAÇÃO GERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    background-color: #ffffff;
+
+    color: #30282a;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    min-height: 100vh;
+}
+
+
+
+/* =====================================================
+   MENU LATERAL
+===================================================== */
+
+.menu-lateral {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 220px;
+    height: 100vh;
+
+    background-color: #f8eeee;
+
+    border-right: 1px solid #eadcdc;
+
+    overflow: hidden;
+
+    z-index: 10;
+}
+
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-area {
+
+    width: calc(100% - 30px);
+
+    height: 113px;
+
+    margin: 0 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-bottom: 3px solid #913e61;
+
+    position: relative;
+}
+
+
+.logo-area::after {
+
+    content: "♥";
+
+    position: absolute;
+
+    bottom: -10px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background-color: #f8eeee;
+
+    padding: 0 5px;
+
+    color: #913e61;
+
+    font-size: 13px;
+}
+
+
+.logo-area img {
+
+    width: 150px;
+
+    height: 110px;
+
+    object-fit: contain;
+}
+
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu {
+
+    padding-top: 8px;
+}
+
+
+.menu-item {
+
+    width: calc(100% - 8px);
+
+    height: 37px;
+
+    margin: 0 4px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: #91425f;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    border-radius: 3px;
+}
+
+
+.menu-item:hover {
+
+    background-color: #ecdce1;
+}
+
+
+.menu-item.ativo {
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+}
+
+
+.icone {
+
+    width: 18px;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+
+
+/* =====================================================
+   SAIR
+===================================================== */
+
+.sair {
+
+    margin-top: 28px;
+}
+
+
+
+/* =====================================================
+   IMAGEM LATERAL
+===================================================== */
+
+.imagem-lateral {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 195px;
+
+    overflow: hidden;
+}
+
+
+.imagem-lateral img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.68;
+}
+
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.conteudo {
+
+    margin-left: 220px;
+
+    min-height: 100vh;
+
+    padding: 20px 18px;
+}
+
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.titulo-pagina {
+
+    color: #91425f;
+
+    font-size: 21px;
+
+    font-weight: 400;
+
+    margin-bottom: 17px;
+}
+
+
+
+/* =====================================================
+   ÁREA PRINCIPAL
+===================================================== */
+
+.area-principal {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(650px, 1fr)
+        240px;
+
+    gap: 17px;
+
+    align-items: start;
+}
+
+
+.parte-esquerda {
+
+    min-width: 0;
+}
+
+
+
+/* =====================================================
+   SERVIÇOS SELECIONADOS
+===================================================== */
+
+.servicos-selecionados {
+
+    height: 125px;
+
+    background-color: #f8eeee;
+
+    padding: 8px 7px;
+
+    position: relative;
+}
+
+
+.servicos-selecionados h2 {
+
+    color: #91425f;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    margin-bottom: 12px;
+}
+
+
+.servico-escolhido {
+
+    width: 185px;
+
+    height: 73px;
+
+    background-color: #ffffff;
+
+    border-radius: 3px;
+
+    padding: 8px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.servico-escolhido span {
+
+    color: #91425f;
+
+    font-size: 10px;
+
+    line-height: 15px;
+}
+
+
+.servico-escolhido .nome {
+
+    color: #30282a;
+
+    font-size: 11px;
+}
+
+
+
+/* =====================================================
+   BOTÃO MAIS SERVIÇOS
+===================================================== */
+
+.btn-mais-servicos {
+
+    position: absolute;
+
+    right: 18px;
+
+    top: 59px;
+
+    width: 162px;
+
+    height: 28px;
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+
+    border-radius: 3px;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.btn-mais-servicos:hover {
+
+    background-color: #71314d;
+}
+
+
+
+/* =====================================================
+   ÁREA PROFISSIONAIS
+===================================================== */
+
+.area-profissionais {
+
+    margin-top: 14px;
+
+    background-color: #f8eeee;
+
+    min-height: 217px;
+
+    padding: 8px 7px;
+}
+
+
+.area-profissionais h2 {
+
+    color: #91425f;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    margin-bottom: 10px;
+}
+
+
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
+.filtros {
+
+    display: flex;
+
+    gap: 18px;
+
+    margin-bottom: 10px;
+}
+
+
+.campo-busca {
+
+    height: 16px;
+
+    width: 470px;
+
+    background-color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 6px;
+}
+
+
+.campo-busca i {
+
+    color: #91425f;
+
+    font-size: 9px;
+
+    margin-right: 5px;
+}
+
+
+.campo-busca input {
+
+    border: none;
+
+    outline: none;
+
+    width: 100%;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 8px;
+
+    color: #555;
+}
+
+
+.campo-busca input::placeholder {
+
+    color: #8c737a;
+}
+
+
+.filtros select {
+
+    width: 175px;
+
+    height: 16px;
+
+    border: none;
+
+    outline: none;
+
+    background-color: #ffffff;
+
+    color: #91425f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 8px;
+
+    padding-left: 8px;
+
+    cursor: pointer;
+}
+
+
+
+/* =====================================================
+   LISTA DE PROFISSIONAIS
+===================================================== */
+
+.lista-profissionais {
+
+    display: flex;
+
+    gap: 9px;
+
+    padding-left: 15px;
+}
+
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.profissional {
+
+    width: 215px;
+
+    height: 136px;
+
+    background-color: #ffffff;
+
+    border-radius: 4px;
+
+    padding: 8px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+
+/* =====================================================
+   DADOS DA PROFISSIONAL
+===================================================== */
+
+.dados-profissional {
+
+    display: flex;
+
+    height: 60px;
+}
+
+
+.dados-profissional img {
+
+    width: 55px;
+
+    height: 55px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    margin-right: 8px;
+}
+
+
+.informacoes {
+
+    padding-top: 2px;
+}
+
+
+.informacoes h3 {
+
+    color: #30282a;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    margin-bottom: 3px;
+}
+
+
+.profissao {
+
+    display: block;
+
+    color: #91425f;
+
+    font-size: 8px;
+
+    margin-bottom: 5px;
+}
+
+
+
+/* =====================================================
+   AVALIAÇÃO
+===================================================== */
+
+.avaliacao {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+}
+
+
+.estrela {
+
+    color: #f4b400;
+
+    font-size: 13px;
+}
+
+
+.avaliacao strong {
+
+    font-size: 8px;
+}
+
+
+.avaliacao small {
+
+    font-size: 6px;
+}
+
+
+
+/* =====================================================
+   ESPECIALIDADES
+===================================================== */
+
+.especialidades {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    margin-top: 5px;
+
+    min-height: 22px;
+}
+
+
+.especialidades span {
+
+    height: 13px;
+
+    padding: 1px 8px;
+
+    border-radius: 3px;
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+
+    font-size: 7px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+
+/* =====================================================
+   BOTÃO SELECIONAR
+===================================================== */
+
+.btn-profissional {
+
+    width: 100%;
+
+    height: 19px;
+
+    margin-top: auto;
+
+    border: 1px solid #8e3d61;
+
+    border-radius: 3px;
+
+    background-color: #ffffff;
+
+    color: #91425f;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 9px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.btn-profissional:hover {
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+}
+
+
+
+/* =====================================================
+   BOTÃO SELECIONADO
+===================================================== */
+
+.btn-profissional.selecionado {
+
+    background-color: #8e3d61;
+
+    border-color: #8e3d61;
+
+    color: #ffffff;
+
+    cursor: default;
+}
+
+
+
+/* =====================================================
+   RESUMO DO ATENDIMENTO
+===================================================== */
+
+.resumo {
+
+    width: 240px;
+
+    min-height: 340px;
+
+    background-color: #f8eeee;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.resumo h2 {
+
+    color: #91425f;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    padding: 10px 10px 8px;
+}
+
+
+
+/* =====================================================
+   ITENS DO RESUMO
+===================================================== */
+
+.resumo-item {
+
+    min-height: 55px;
+
+    border-bottom: 1px solid #e4c8ce;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 7px 10px;
+}
+
+
+.resumo-icone {
+
+    width: 27px;
+
+    color: #91425f;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    margin-right: 5px;
+}
+
+
+.resumo-texto {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.resumo-texto span {
+
+    color: #91425f;
+
+    font-size: 11px;
+}
+
+
+.resumo-texto strong {
+
+    color: #30282a;
+
+    font-size: 11px;
+
+    font-weight: 400;
+}
+
+
+.seta {
+
+    color: #8e5b6b;
+
+    font-size: 25px;
+}
+
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.total {
+
+    padding: 29px 10px 20px;
+}
+
+
+.titulo-total {
+
+    display: block;
+
+    color: #91425f;
+
+    font-size: 12px;
+
+    margin-bottom: 8px;
+}
+
+
+.valor-total {
+
+    color: #30282a;
+
+    font-size: 16px;
+
+    font-weight: 400;
+}
+
+
+
+/* =====================================================
+   BOTÃO CONTINUAR
+===================================================== */
+
+.btn-continuar {
+
+    width: calc(100% - 20px);
+
+    height: 32px;
+
+    margin: 0 10px 15px;
+
+    background-color: #8e3d61;
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 3px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+}
+
+
+.btn-continuar:hover {
+
+    background-color: #71314d;
+}
+
+
+.btn-continuar span {
+
+    font-size: 16px;
+}
+
+
+
+/* =====================================================
+   MENSAGEM PERSONALIZADA
+===================================================== */
+
+.mensagem-overlay {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(70, 35, 48, 0.35);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+
+/* =====================================================
+   CAIXA DA MENSAGEM
+===================================================== */
+
+.mensagem-caixa {
+
+    width: 350px;
+
+    min-height: 220px;
+
+    background-color: #fffafa;
+
+    border-radius: 12px;
+
+    border: 1px solid #ead0d8;
+
+    box-shadow:
+        0 10px 35px rgba(80, 35, 50, 0.25);
+
+    text-align: center;
+
+    padding: 25px 30px;
+
+    animation: aparecerMensagem 0.25s ease;
+}
+
+
+
+/* =====================================================
+   CORAÇÃO
+===================================================== */
+
+.mensagem-coracao {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+
+    background-color: #f3dce3;
+
+    color: #91425f;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 24px;
+}
+
+
+
+/* =====================================================
+   TÍTULO DA MENSAGEM
+===================================================== */
+
+.mensagem-caixa h2 {
+
+    color: #91425f;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+
+
+/* =====================================================
+   TEXTO DA MENSAGEM
+===================================================== */
+
+.mensagem-caixa p {
+
+    color: #5c484d;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 14px;
+
+    line-height: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+
+/* =====================================================
+   BOTÃO OK
+===================================================== */
+
+.mensagem-caixa button {
+
+    width: 120px;
+
+    height: 34px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: #91425f;
+
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.mensagem-caixa button:hover {
+
+    background-color: #71314d;
+
+    transform: scale(1.03);
+}
+
+
+
+/* =====================================================
+   ANIMAÇÃO DA MENSAGEM
+===================================================== */
+
+@keyframes aparecerMensagem {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.9);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .area-principal {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .resumo {
+
+        width: 100%;
+
+    }
+
+}
+
+
+
+@media (max-width: 750px) {
+
+    .menu-lateral {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+
+    .imagem-lateral {
+
+        display: none;
+
+    }
+
+
+    .conteudo {
+
+        margin-left: 0;
+
+    }
+
+
+    .lista-profissionais {
+
+        flex-wrap: wrap;
+
+        padding-left: 0;
+
+    }
+
+
+    .filtros {
+
+        flex-direction: column;
+
+    }
+
+
+    .campo-busca {
+
+        width: 100%;
+
+    }
+
+
+    .filtros select {
+
+        width: 100%;
+
+    }
+
+}

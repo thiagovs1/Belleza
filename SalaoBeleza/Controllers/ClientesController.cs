@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Mvc;
 using SalaoBeleza.DTOs;
 using SalaoBeleza.Services;
@@ -35,27 +36,27 @@ public class ClienteController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Criar(ClienteDTO dto)
+public async Task<IActionResult> Criar([FromBody] ClienteDTO dto)
+{
+    try
     {
-        try
-        {
-            var cliente = await _service.Criar(dto);
+        var cliente = await _service.Criar(dto);
 
-            return Ok(cliente);
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(new
-            {
-                erro = ex.Message,
-                detalhe = ex.InnerException?.Message,
-                causa = ex.InnerException?.InnerException?.Message
-            });
-        }
+        return Ok(cliente);
     }
-
+    catch (Exception ex)
+    {
+        return BadRequest(new
+        {
+            erro = ex.Message,
+            detalhe = ex.InnerException?.Message
+        });
+    }
+}
     [HttpPut("{id}")]
-    public async Task<IActionResult> Atualizar(int id, ClienteDTO dto)
+    public async Task<IActionResult> Atualizar(
+        int id,
+        [FromBody] ClienteDTO dto)
     {
         var atualizado = await _service.Atualizar(id, dto);
 

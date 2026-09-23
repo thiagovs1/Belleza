@@ -2,135 +2,482 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <title>Início - Belleza</title>
 
-    <title>Cadastro de Clientes</title>
-
-    <link rel="stylesheet"
-        href="style.css">
-
+    <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="tela_inicial.css">
 </head>
-
 
 <body>
 
-    <aside class="sidebar">
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <aside class="menu-lateral">
 
         <div class="logo-area">
 
-            <img
-                src="imagens/logo_belleza.png"
-                alt="Belleza"
-                class="logo-belleza">
+            <img src="imagens/logo_belleza.png"
+                alt="Logo Belleza">
 
         </div>
 
 
-        <div class="linha-logo"></div>
-
-
-        <!-- MENU -->
-
         <nav class="menu">
 
+            <a href="tela_inicial.html" class="menu-item ativo">
 
-            <a href="#"
-                class="menu-item ativo">
+                <span class="icone">
+                    <i class="fa-solid fa-house"></i>
+                </span>
 
-                <i class="fa-solid fa-house"></i>
-
-                <span>Início</span>
-
-            </a>
-
-
-            <a href="#"
-                class="menu-item">
-
-                <i class="fa-regular fa-calendar"></i>
-
-                <span>Meus agendamentos</span>
+                <span>
+                    Início
+                </span>
 
             </a>
 
 
-            <a href="#"
-                class="menu-item">
+            <a href="servicos.html" class="menu-item">
 
-                <i class="fa-solid fa-scissors"></i>
+                <span class="icone">
+                    <i class="fa-solid fa-scissors"></i>
+                </span>
 
-                <span>Serviços</span>
-
-            </a>
-
-
-            <a href="#"
-                class="menu-item">
-
-                <i class="fa-solid fa-users"></i>
-
-                <span>Profissionais</span>
+                <span>
+                    Serviços
+                </span>
 
             </a>
 
 
-            <a href="#"
-                class="menu-item">
+            <a href="profissionais.html" class="menu-item">
 
-                <i class="fa-solid fa-tags"></i>
+                <span class="icone">
+                    <i class="fa-solid fa-people-group"></i>
+                </span>
 
-                <span>Promoções</span>
-
-            </a>
-
-
-            <a href="#"
-                class="menu-item">
-
-                <i class="fa-regular fa-star"></i>
-
-                <span>Avaliações</span>
+                <span>
+                    Profissionais
+                </span>
 
             </a>
 
 
-            <a href="#"
-                class="menu-item">
+            <a href="#" class="menu-item">
 
-                <i class="fa-solid fa-circle-user"></i>
+                <span class="icone">
+                    <i class="fa-regular fa-calendar"></i>
+                </span>
 
-                <span>Minha Conta</span>
-
-            </a>
-
-
-            <a href="#"
-                class="menu-item">
-
-                <i class="fa-regular fa-circle-question"></i>
-
-                <span>Ajuda</span>
+                <span>
+                    Agendar horário
+                </span>
 
             </a>
 
 
-            <a href="#"
-                class="menu-item sair">
+            <a href="#" class="menu-item">
 
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="icone">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </span>
 
-                <span>Sair</span>
+                <span>
+                    Meus agendamentos
+                </span>
 
             </a>
 
+
+            <a href="pagina_promocao.html" class="menu-item">
+
+                <span class="icone">
+                    <i class="fa-solid fa-tag"></i>
+                </span>
+
+                <span>
+                    Promoções
+                </span>
+
+            </a>
+
+
+            <a href="#" class="menu-item">
+
+                <span class="icone">
+                    <i class="fa-regular fa-star"></i>
+                </span>
+
+                <span>
+                    Avaliações
+                </span>
+
+            </a>
+
+
+            <a href="#" class="menu-item">
+
+                <span class="icone">
+                    <i class="fa-regular fa-circle-user"></i>
+                </span>
+
+                <span>
+                    Minha Conta
+                </span>
+
+            </a>
 
         </nav>
 
+
+        <!-- SAIR -->
+
+        <a href="login_cliente.html" class="menu-item sair">
+
+            <span class="icone">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </span>
+
+            <span>
+                Sair
+            </span>
+
+        </a>
+
+
+        <!-- IMAGEM DO SALÃO -->
+
+        <div class="imagem-lateral">
+
+            <img src="imagens/salao_belleza.png"
+                alt="Salão Belleza">
+
+        </div>
+
     </aside>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="conteudo">
+
+
+        <!-- =================================================
+             ÁREA SUPERIOR
+        ================================================== -->
+
+        <section class="area-superior">
+
+
+            <!-- =================================================
+                 BOAS-VINDAS
+            ================================================== -->
+
+            <div class="boas-vindas">
+
+
+                <!-- TEXTO DA ESQUERDA -->
+
+                <div class="texto-boas">
+
+                    <h1>
+                        Olá , Juliana!
+                    </h1>
+
+                    <h2>
+                        Que bom ter você por aqui!
+                    </h2>
+
+                    <p>
+                        Cuide de você, sua beleza e bem-estar
+                        <br>
+                        são a nossa prioridade.
+                    </p>
+
+                    <span class="coracao">
+                        ♥
+                    </span>
+
+                </div>
+
+
+                <!-- RAMO ESQUERDO -->
+
+                <div class="ramo ramo-esquerdo">
+                    ❧
+                </div>
+
+
+                <!-- IMAGEM -->
+
+                <img
+                    src="imagens/combo1.jpg"
+                    alt="Beleza"
+                    class="imagem-boas"
+                >
+
+
+                <!-- FRASE INCLINADA -->
+
+                <p class="frase-boas">
+
+                    Beleza também é
+                    <br>
+                    autocuidado!
+
+                </p>
+
+
+                <!-- RAMO DIREITO -->
+
+                <div class="ramo ramo-direito">
+                    ❧
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROMOÇÃO
+            ================================================== -->
+
+            <div class="promocao">
+
+                <div class="conteudo-promocao">
+
+                    <h2>
+                        Promoção especial
+                    </h2>
+
+                    <h1>
+                        10 % <span>OFF</span>
+                    </h1>
+
+                    <p>
+                        em todos os nossos serviços
+                        <br>
+                        de cabelo
+                    </p>
+
+                    <a
+                        href="pagina_promocao.html"
+                        class="btn-promocao">
+
+                        Aproveite agora
+                        <span>➜</span>
+
+                    </a>
+
+                </div>
+
+
+                <img
+                    src="imagens/promocao_belleza.png"
+                    alt="Promoção Belleza"
+                    class="imagem-promocao"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMBOS
+        ================================================== -->
+
+        <section class="area-combos">
+
+            <h2>
+                Combos em destaque
+            </h2>
+
+            <p class="descricao-combos">
+                Cuide de você com nossos pacotes especiais.
+            </p>
+
+
+            <div class="lista-combos">
+
+
+                <!-- COMBO 1 -->
+
+                <div class="combo">
+
+                    <img
+                        src="imagens/combo1.jpg"
+                        alt="Combo Dia de beleza"
+                    >
+
+                    <h3>
+                        Combo Dia de beleza
+                    </h3>
+
+                    <p class="servicos">
+                        Corte + hidratação +
+                        <br>
+                        Manicure + Pedicure
+                    </p>
+
+                    <div class="informacoes">
+
+                        <span>
+                            2h 45
+                        </span>
+
+                        <strong>
+                            R$200,00
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="profissionais.html"
+                        class="btn-adicionar">
+
+                        Adicionar
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- COMBO 2 -->
+
+                <div class="combo">
+
+                    <img
+                        src="imagens/combo2.jpg"
+                        alt="Combo Produção para festa"
+                    >
+
+                    <h3>
+                        Combo Produção para festa
+                    </h3>
+
+                    <p class="servicos">
+                        Penteado + Maquiagem +
+                        <br>
+                        Design de Sobrancelha
+                    </p>
+
+                    <div class="informacoes">
+
+                        <span>
+                            2h 35
+                        </span>
+
+                        <strong>
+                            R$190,00
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="profissionais.html"
+                        class="btn-adicionar">
+
+                        Adicionar
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- COMBO 3 -->
+
+                <div class="combo">
+
+                    <img
+                        src="imagens/combo3.jpg"
+                        alt="Combo Belleza completa"
+                    >
+
+                    <h3>
+                        Combo Belleza completa
+                    </h3>
+
+                    <p class="servicos">
+                        Corte + hidratação + Manicure +
+                        <br>
+                        Pedicure + Maquiagem + Design de
+                        <br>
+                        Sobrancelha
+                    </p>
+
+                    <div class="informacoes">
+
+                        <span>
+                            4h
+                        </span>
+
+                        <strong>
+                            R$280,00
+                        </strong>
+
+                    </div>
+
+                    <a
+                        href="profissionais.html"
+                        class="btn-adicionar">
+
+                        Adicionar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FRASE LATERAL
+        ================================================== -->
+
+        <div class="frase-lateral">
+
+            <div class="decoracao-flor esquerda">
+                ❧
+            </div>
+
+            <span>
+                ♥
+            </span>
+
+            <p>
+                Cuidar de você
+                <br>
+                é sempre uma boa ideia
+            </p>
+
+            <div class="decoracao-flor direita">
+                ❧
+            </div>
+
+        </div>
+
+
+    </main>
+
+</body>
+
+</html>
