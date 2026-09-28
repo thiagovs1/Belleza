@@ -26,7 +26,7 @@ body {
 }
 
 
-/* CARD */
+
 
 .recuperar-card {
     width: 445px;
@@ -42,7 +42,7 @@ body {
 }
 
 
-/* LOGO */
+
 
 .logo-area {
     text-align: center;
@@ -60,7 +60,7 @@ body {
 }
 
 
-/* TÍTULO */
+
 
 .recuperar-card h2 {
     text-align: center;
@@ -75,7 +75,7 @@ body {
 }
 
 
-/* TEXTO */
+
 
 .texto-recuperar {
     text-align: center;
@@ -90,7 +90,7 @@ body {
 }
 
 
-/* CAMPOS */
+
 
 .campo {
     margin-bottom: 18px;
@@ -135,7 +135,7 @@ body {
 }
 
 
-/* BOTÃO */
+
 
 .btn-salvar {
     width: 100%;
@@ -164,7 +164,7 @@ body {
 }
 
 
-/* VOLTAR */
+
 
 .voltar {
     display: block;
@@ -181,7 +181,7 @@ body {
 }
 
 
-/* RESPONSIVO */
+
 
 @media (max-width: 600px) {
 

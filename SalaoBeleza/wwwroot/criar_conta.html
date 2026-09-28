@@ -33,7 +33,7 @@
 
         <form id="formCadastro">
 
-            <!-- NOME -->
+           
 
             <div class="campo">
 
@@ -52,7 +52,7 @@
             </div>
 
 
-            <!-- E-MAIL -->
+            
 
             <div class="campo">
 
@@ -71,7 +71,7 @@
             </div>
 
 
-            <!-- TELEFONE -->
+           
 
             <div class="campo">
 
@@ -90,7 +90,7 @@
             </div>
 
 
-            <!-- SENHA -->
+           
 
             <div class="campo">
 
@@ -109,7 +109,7 @@
             </div>
 
 
-            <!-- CONFIRMAR SENHA -->
+           
 
             <div class="campo">
 
@@ -128,7 +128,7 @@
             </div>
 
 
-            <!-- LEMBRAR -->
+           
 
             <label class="lembrar">
 
@@ -142,7 +142,7 @@
             </label>
 
 
-            <!-- BOTÃO -->
+           
 
             <button
                 type="submit"
@@ -160,7 +160,7 @@
             </div>
 
 
-            <!-- LOGIN -->
+         
 
             <p class="login">
 
@@ -186,7 +186,7 @@
                 event.preventDefault();
 
 
-                // Pegando os valores dos campos
+               
 
                 const nome =
                     document.getElementById("nome").value.trim();
@@ -204,7 +204,7 @@
                     document.getElementById("confirmar").value;
 
 
-                // Verifica se as senhas são iguais
+                
 
                 if (senha !== confirmar) {
 
@@ -214,7 +214,7 @@
                 }
 
 
-                // Dados que serão enviados para a API
+                
 
                 const dados = {
 
@@ -242,7 +242,7 @@
                     );
 
 
-                    // Cadastro realizado
+                    
 
                     if (resposta.ok) {
 
@@ -255,7 +255,7 @@
                     }
 
 
-                    // Tenta mostrar o erro da API
+                    
 
                     let mensagemErro =
                         "Não foi possível criar a conta.";
@@ -275,7 +275,7 @@
 
                     } catch (e) {
 
-                        // Caso a API não retorne JSON
+                
                     }
 
 

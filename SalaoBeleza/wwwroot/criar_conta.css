@@ -42,7 +42,7 @@ body {
 }
 
 
-/* LOGO */
+
 
 .logo-area {
     text-align: center;
@@ -60,7 +60,7 @@ body {
 }
 
 
-/* TEXTO */
+
 
 .texto-cadastro {
     text-align: center;
@@ -74,7 +74,6 @@ body {
 }
 
 
-/* CAMPOS */
 
 .campo {
     margin-bottom: 21px;
@@ -119,7 +118,7 @@ body {
 }
 
 
-/* LEMBRAR-ME */
+
 
 .lembrar {
     display: flex;
@@ -145,7 +144,7 @@ body {
 }
 
 
-/* BOTÃO */
+
 
 .btn-criar {
     width: 100%;
@@ -174,7 +173,7 @@ body {
 }
 
 
-/* OU */
+
 
 .ou {
     text-align: center;
@@ -189,7 +188,7 @@ body {
 }
 
 
-/* LOGIN */
+
 
 .login {
     text-align: center;
@@ -210,7 +209,7 @@ body {
 }
 
 
-/* RESPONSIVO */
+
 
 @media (max-width: 600px) {
 

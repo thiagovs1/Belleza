@@ -26,7 +26,7 @@ body {
 }
 
 
-/* CARD */
+
 
 .login-card {
     width: 495px;
@@ -42,7 +42,7 @@ body {
 }
 
 
-/* LOGO */
+
 
 .logo-area {
     text-align: center;
@@ -69,7 +69,7 @@ body {
     margin: 0;
 }
 
-/* TEXTO LOGIN */
+
 
 .texto-login {
     text-align: center;
@@ -83,7 +83,7 @@ body {
 }
 
 
-/* CAMPOS */
+
 
 .campo {
     margin-bottom: 21px;
@@ -128,7 +128,7 @@ body {
 }
 
 
-/* ESQUECI MINHA SENHA */
+
 
 .esqueci {
     text-align: right;
@@ -149,7 +149,7 @@ body {
 }
 
 
-/* BOTÃO ENTRAR */
+
 
 .btn-entrar {
     width: 100%;
@@ -178,7 +178,6 @@ body {
 }
 
 
-/* OU */
 
 .ou {
     text-align: center;
@@ -193,7 +192,7 @@ body {
 }
 
 
-/* CRIAR CONTA */
+
 
 .btn-criar {
     width: 100%;
@@ -227,7 +226,7 @@ body {
 }
 
 
-/* FRASE */
+
 
 .frase {
     text-align: center;
@@ -240,7 +239,7 @@ body {
 }
 
 
-/* RESPONSIVO */
+
 
 @media (max-width: 600px) {
 
