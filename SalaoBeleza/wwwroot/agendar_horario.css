@@ -17,207 +17,92 @@ body {
 
 }
 
-
-
-
-
-.menu-lateral {
-
-    position: fixed;
-
+.sidebar::before {
+    content: "";
+    position: absolute;
     top: 0;
     left: 0;
-
-    width: 220px;
-    height: 100vh;
-
-    background-color: #f8eeee;
-
-    border-right: 1px solid #eadcdc;
-
-    overflow: hidden;
-
-    z-index: 10;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 238, 238, 0.72);
+    z-index: 0;
 }
 
-
-
-
+.logo-area,
+.linha-logo,
+.menu {
+    position: relative;
+    z-index: 1;
+}
 
 .logo-area {
-
-    width: calc(100% - 30px);
-
-    height: 113px;
-
-    margin: 0 15px;
-
+    width: 100%;
+    height: 120px;
     display: flex;
-
-    justify-content: center;
-
     align-items: center;
-
-    border-bottom: 3px solid #913e61;
-
-    position: relative;
+    justify-content: center;
+    padding: 15px 10px;
 }
 
-
-.logo-area::after {
-
-    content: "♥";
-
-    position: absolute;
-
-    bottom: -10px;
-
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background-color: #f8eeee;
-
-    padding: 0 5px;
-
-    color: #913e61;
-
-    font-size: 13px;
-}
-
-
-.logo-area img {
-
-    width: 150px;
-
-    height: 110px;
-
+.logo-belleza {
+    width: 165px;
+    height: auto;
     object-fit: contain;
-
+    display: block;
 }
 
-
-
-
+.linha-logo {
+    height: 4px;
+    width: 174px;
+    background: #8d3b5c;
+    margin: 0 auto 8px;
+}
 
 .menu {
-
-    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-
 
 .menu-item {
-
-    width: calc(100% - 8px);
-
+    width: 100%;
     height: 37px;
-
-    margin: 0 4px;
-
-    padding: 0 15px;
-
     display: flex;
-
     align-items: center;
-
-    gap: 13px;
-
-    color: #91425f;
-
+    gap: 15px;
+    padding-left: 18px;
     text-decoration: none;
-
+    color: #994e6a;
     font-size: 14px;
-
-    border-radius: 3px;
-
+    transition: 0.2s;
 }
 
+.menu-item i {
+    width: 18px;
+    text-align: center;
+    font-size: 16px;
+}
 
 .menu-item:hover {
-
-    background-color: #ecdce1;
-
+    background: rgba(234, 214, 220, 0.90);
 }
-
 
 .menu-item.ativo {
-
-    background-color: #8e3d61;
-
-    color: #ffffff;
-
+    background: #8f3d5e;
+    color: white;
+    border-radius: 0 4px 4px 0;
 }
 
-
-.icone {
-
-    width: 18px;
-
-    text-align: center;
-
-    font-size: 15px;
-
+.menu-item.sair {
+    margin-top: 5px;
 }
-
-
-
-
-
-.sair {
-
-    margin-top: 28px;
-
-}
-
-
-
-
-.imagem-lateral {
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 195px;
-
-    overflow: hidden;
-
-}
-
-
-.imagem-lateral img {
-
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    opacity: 0.68;
-
-}
-
-
-
 
 .conteudo {
-
     margin-left: 220px;
-
     min-height: 100vh;
-
     padding: 20px 20px;
-
     position: relative;
-
 }
-
-
-
-
 
 .titulo-pagina {
 
@@ -1031,75 +916,60 @@ body {
 
 }
 
+/* ============================= */
+/* ESTADOS DOS DIAS */
+/* ============================= */
 
+.dia:disabled {
+    cursor: not-allowed;
+}
 
+.dia.indisponivel {
+    background-color: #ffffff;
+    color: #dddddd;
+    cursor: not-allowed;
+}
 
+.dia.disponivel {
+    background-color: #9c7888;
+    color: #ffffff;
+}
 
-@media (max-width: 1050px) {
+.dia.disponivel:hover {
+    background-color: #e8b8c8;
+}
 
-    .layout-principal {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .resumo {
-
-        width: 100%;
-
-    }
-
-
-    .frase-lateral {
-
-        display: none;
-
-    }
-
+.dia.escolhido {
+    background-color: #e8b8c8;
+    color: #ffffff;
 }
 
 
+/* ============================= */
+/* HORÁRIOS */
+/* ============================= */
 
-@media (max-width: 800px) {
+.horario:disabled {
+    background-color: #e3c2aa;
+    color: #ffffff;
+    border-color: #e3c2aa;
+    cursor: not-allowed;
+}
 
-    .menu-lateral {
-
-        position: relative;
-
-        width: 100%;
-
-        height: auto;
-
-    }
-
-
-    .imagem-lateral {
-
-        display: none;
-
-    }
+.horario.escolhido-horario {
+    background-color: #e6aec0;
+    color: #ffffff;
+}
 
 
-    .conteudo {
+/* ============================= */
+/* MENSAGENS */
+/* ============================= */
 
-        margin-left: 0;
-
-    }
-
-
-    .area-agendamento {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .calendario,
-    .horarios {
-
-        width: 100%;
-
-    }
-
+.mensagem-horario {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #91425f;
+    font-size: 12px;
+    padding: 20px 5px;
 }

@@ -2,305 +2,124 @@
 <html lang="pt-br">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Profissionais - Belleza</title>
-
     
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
-    
     <link rel="stylesheet" href="profissionais.css">
 
 </head>
 
-
 <body>
 
-
-   
-
-    <aside class="menu-lateral">
-
-
-       
+    <aside class="sidebar">
 
         <div class="logo-area">
 
             <img
                 src="imagens/logo_belleza.png"
-                alt="Logo Belleza"
-            >
+                alt="Belleza"
+                class="logo-belleza">
 
         </div>
 
-
-     
-
         <nav class="menu">
 
+            <a href="tela_inicial.html"  
+                class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
 
-            
+            <a href="servicos.html"
+                class="menu-item">
+                <i class="fa-solid fa-scissors"></i>
+                <span>Serviços</span>
+            </a>
 
-            <a
-                href="tela_inicial.html"
-                class="menu-item"
-            >
+            <a href="profissionais.html"
+                class="menu-item ativo">
+                <i class="fa-solid fa-users"></i>
+                <span>Profissionais</span>
+            </a>
 
-                <span class="icone">
-                    <i class="fa-solid fa-house"></i>
-                </span>
+            <a href="agendar_horario.html" 
+                class="menu-item">
+                <i class="fa-regular fa-calendar"></i>
+                <span>Agendar horário</span>
+            </a>
 
-                <span>
-                    Início
-                </span>
+            <a href="meus_agendamentos.html"
+                class="menu-item">
+                <i class="fa-regular fa-calendar"></i>
+                <span>Meus agendamentos</span>  
 
             </a>
 
-
-           
-
-            <a
-                href="servicos.html"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-solid fa-scissors"></i>
-                </span>
-
-                <span>
-                    Serviços
-                </span>
-
+            <a href="#"
+                class="menu-item">
+                <i class="fa-solid fa-tags"></i>
+                <span>Promoções</span>
             </a>
 
-
-          
-
-            <a
-                href="profissionais.html"
-                class="menu-item ativo"
-            >
-
-                <span class="icone">
-                    <i class="fa-solid fa-people-group"></i>
-                </span>
-
-                <span>
-                    Profissionais
-                </span>
-
+            <a href="#"
+                class="menu-item">
+                <i class="fa-regular fa-star"></i>
+                <span>Avaliações</span>
             </a>
 
-
-         
-
-            <a
-                href="agendar_horario.html"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-regular fa-calendar"></i>
-                </span>
-
-                <span>
-                    Agendar horário
-                </span>
-
+            <a href="#"
+                class="menu-item">
+                <i class="fa-regular fa-circle-user"></i>
+                <span>Minha Conta</span>
             </a>
 
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-regular fa-calendar-check"></i>
-                </span>
-
-                <span>
-                    Meus agendamentos
-                </span>
-
-            </a>
-
-
-           
-
-            <a
-                href="pagina_promocao.html"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-solid fa-tag"></i>
-                </span>
-
-                <span>
-                    Promoções
-                </span>
-
-            </a>
-
-
-            
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-regular fa-star"></i>
-                </span>
-
-                <span>
-                    Avaliações
-                </span>
-
-            </a>
-
-
-           
-
-            <a
-                href="#"
-                class="menu-item"
-            >
-
-                <span class="icone">
-                    <i class="fa-regular fa-circle-user"></i>
-                </span>
-
-                <span>
-                    Minha Conta
-                </span>
-
+            <a href="#"
+                class="menu-item sair">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Sair</span>
             </a>
 
         </nav>
 
-
-      
-        <a
-            href="login_cliente.html"
-            class="menu-item sair"
-        >
-
-            <span class="icone">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </span>
-
-            <span>
-                Sair
-            </span>
-
-        </a>
-
-
-      
-
-        <div class="imagem-lateral">
-
-            <img
-                src="imagens/salao_belleza.png"
-                alt="Salão Belleza"
-            >
-
-        </div>
-
-
     </aside>
 
-
-
-    
     <main class="conteudo">
-
-
-   
 
         <h1 class="titulo-pagina">
             Escolha o profissional
         </h1>
 
-
-
         <div class="area-principal">
-
-
-            
 
             <div class="parte-esquerda">
 
-
-                <
                 <section class="servicos-selecionados">
+                    <h2>Serviços selecionados</h2>
 
-
-                    <h2>
-                        Serviços selecionados
-                    </h2>
-
-
-                    <div class="servico-escolhido">
-
-                        <span class="nome">
-                            Cabelo
-                        </span>
-
-                        <span>
-                            Mecha + Tratamento
-                        </span>
-
-                        <span>
-                            Tempo: 3h 30
-                        </span>
-
-                        <span>
-                            Preço: 220,00
-                        </span>
-
+                    <div class="servicos-escolhidos"
+                        id="servicosEscolhidos"
+                        style="display: flex; gap: 16px; flex-wrap: wrap;">
                     </div>
 
-
-                    <a
-                        href="servicos.html"
-                        class="btn-mais-servicos"
-                    >
+                    <a href="servicos.html"
+                        class="btn-mais-servicos">
                         adicionar mais serviços
                     </a>
 
-
-                </section>
-
-
-
-                <
+                </section>  
 
                 <section class="area-profissionais">
-
-
-                    <h2>
-                        Nossos profissionais
-                    </h2>
-
+                    <h2>Nossos profissionais</h2>
 
                     <div class="filtros">
-
-
-                        
+      
                         <div class="campo-busca">
-
                             <i class="fa-solid fa-magnifying-glass"></i>
 
                             <input
@@ -311,9 +130,6 @@
 
                         </div>
 
-
-                      
-
                         <select id="filtroProfissionais">
 
                             <option value="todos">
@@ -322,47 +138,25 @@
 
                         </select>
 
-
                     </div>
 
+                    <div class="lista-profissionais"
+                        id="listaProfissionais">
 
-
-                   
-
-                    <div
-                        class="lista-profissionais"
-                        id="listaProfissionais"
-                    >
-
-
-
-                        <div
-                            class="profissional"
-                            data-nome="Camila Ferreira"
-                        >
-
+                        <div class="profissional"
+                            data-nome="Camila Ferreira">
 
                             <div class="dados-profissional">
 
-
-                                <img
-                                    src="imagens/camila.png"
-                                    alt="Camila Ferreira"
-                                >
-
+                                <img src="imagens/camila.png">
 
                                 <div class="informacoes">
 
-
-                                    <h3>
-                                        Camila Ferreira
-                                    </h3>
-
+                                    <h3>Camila Ferreira</h3>
 
                                     <span class="profissao">
                                         Cabeleireira
                                     </span>
-
 
                                     <div class="avaliacao">
 
@@ -380,15 +174,9 @@
 
                                     </div>
 
-
                                 </div>
 
-
                             </div>
-
-
-
-                        
 
                             <div class="especialidades">
 
@@ -414,10 +202,6 @@
 
                             </div>
 
-
-
-                      
-
                             <button
                                 type="button"
                                 class="btn-profissional"
@@ -429,36 +213,19 @@
 
                         </div>
 
-
-
-                       
-                        <div
-                            class="profissional"
-                            data-nome="Betriz Costa"
-                        >
-
+                        <div class="profissional"
+                            data-nome="Betriz Costa">
 
                             <div class="dados-profissional">
 
-
-                                <img
-                                    src="imagens/betriz.png"
-                                    alt="Betriz Costa"
+                                <img src="imagens/betriz.png"
                                 >
-
-
                                 <div class="informacoes">
-
-
-                                    <h3>
-                                        Betriz Costa
-                                    </h3>
-
+                                    <h3>Betriz Costa</h3>
 
                                     <span class="profissao">
                                         Cabeleireira
                                     </span>
-
 
                                     <div class="avaliacao">
 
@@ -476,15 +243,9 @@
 
                                     </div>
 
-
                                 </div>
 
-
                             </div>
-
-
-
-                          
 
                             <div class="especialidades">
 
@@ -502,10 +263,6 @@
 
                             </div>
 
-
-
-                         
-
                             <button
                                 type="button"
                                 class="btn-profissional"
@@ -514,44 +271,27 @@
                                 Selecionar
                             </button>
 
-
                         </div>
-
 
                     </div>
 
-
                 </section>
 
-
             </div>
-
-
-
            
-
             <aside class="resumo">
-
 
                 <h2>
                     Resumo do atendimento
                 </h2>
 
-
-                <!-- SERVIÇO -->
-
                 <div class="resumo-item">
 
-
                     <div class="resumo-icone">
-
                         <i class="fa-solid fa-scissors"></i>
-
                     </div>
 
-
                     <div class="resumo-texto">
-
                         <span>
                             Serviço
                         </span>
@@ -562,27 +302,17 @@
 
                     </div>
 
-
                     <span class="seta">
                         ›
                     </span>
 
-
                 </div>
-
-
-
-           
 
                 <div class="resumo-item">
 
-
                     <div class="resumo-icone">
-
                         <i class="fa-solid fa-people-group"></i>
-
                     </div>
-
 
                     <div class="resumo-texto">
 
@@ -596,27 +326,17 @@
 
                     </div>
 
-
                     <span class="seta">
                         ›
                     </span>
 
-
                 </div>
-
-
-
-              
 
                 <div class="resumo-item">
 
-
                     <div class="resumo-icone">
-
                         <i class="fa-regular fa-calendar"></i>
-
                     </div>
-
 
                     <div class="resumo-texto">
 
@@ -630,16 +350,11 @@
 
                     </div>
 
-
                     <span class="seta">
                         ›
                     </span>
 
-
                 </div>
-
-
-
 
                 <div class="total">
 
@@ -648,14 +363,11 @@
                     </span>
 
                     <strong class="valor-total">
-                        R$ 220,00
+                        R$ 0,00
                     </strong>
 
                 </div>
 
-
-
-             
                 <button
                     type="button"
                     class="btn-continuar"
@@ -670,49 +382,28 @@
 
                 </button>
 
-
             </aside>
-
 
         </div>
 
-
     </main>
 
-
-
-    
-
-    <div
-        id="mensagem-overlay"
-        class="mensagem-overlay"
-    >
-
+    <div id="mensagem-overlay"
+        class="mensagem-overlay">
 
         <div class="mensagem-caixa">
 
-
-           
             <div class="mensagem-coracao">
                 ♥
             </div>
-
-
-        
 
             <h2 id="mensagem-titulo">
                 Profissional selecionada!
             </h2>
 
-
-           
-
             <p id="mensagem-texto">
                 Camila Ferreira foi selecionada com sucesso.
             </p>
-
-
-           
 
             <button
                 type="button"
@@ -721,20 +412,78 @@
                 OK
             </button>
 
-
         </div>
-
 
     </div>
 
-
-
-
-
     <script>
 
+        function mostrarServicosSelecionados() {
 
-        
+            const area = document.getElementById("servicosEscolhidos");
+
+            const servicos =
+                JSON.parse(localStorage.getItem("servicosSelecionados")) || [];
+
+            area.innerHTML = "";
+
+            if (servicos.length === 0) {
+
+                area.innerHTML = `
+                    <p>Nenhum serviço selecionado.</p>
+                `;
+
+                atualizarTotalServicos();
+                return;
+            }
+
+            servicos.forEach(function (servico) {
+
+                const item = document.createElement("div");
+                item.className = "servico-escolhido";
+
+                item.innerHTML = `
+                    <span class="nome">
+                        ${servico.categoria}
+                    </span>
+
+                    <span>
+                        ${servico.nome}
+                    </span>
+
+                    <span>
+                        Tempo: ${servico.tempo}
+                    </span>
+
+                    <span>
+                        Preço: R$ ${servico.preco.toFixed(2).replace(".", ",")}
+                    </span>
+                `;
+
+                area.appendChild(item);
+            });
+
+            atualizarTotalServicos();
+        }
+
+        function atualizarTotalServicos() {
+
+            const servicos =
+                JSON.parse(localStorage.getItem("servicosSelecionados")) || [];
+
+            const total = servicos.reduce(function (soma, servico) {
+                return soma + Number(servico.preco || 0);
+            }, 0);
+
+            const valorTotal = document.querySelector(".valor-total");
+
+            if (valorTotal) {
+                valorTotal.textContent =
+                    "R$ " + total.toFixed(2).replace(".", ",");
+            }
+        }
+
+        mostrarServicosSelecionados();
 
         const profissionaisPorServico = {
 
@@ -753,15 +502,7 @@
 
         };
 
-
-
-        
-
         const servicoAtual = "Cabelo";
-
-
-
-    
 
         const select =
             document.getElementById(
@@ -785,9 +526,6 @@
             document.getElementById(
                 "profissionalResumo"
             );
-
-
-
 
         function carregarProfissionais() {
 
@@ -825,9 +563,6 @@
 
         carregarProfissionais();
 
-
-
-        /
         select.addEventListener(
             "change",
             function() {
@@ -867,10 +602,6 @@
 
             }
         );
-
-
-
-       
 
         campoBusca.addEventListener(
             "input",
@@ -915,10 +646,6 @@
             }
         );
 
-
-
-        
-
         function selecionarProfissional(
             nome,
             botao
@@ -948,9 +675,6 @@
                 return;
 
             }
-
-
-
            
             localStorage.setItem(
                 "profissionalSelecionado",
@@ -958,13 +682,8 @@
             );
 
 
-
-
             resumo.textContent =
                 nome;
-
-
-
            
             botao.textContent =
                 "Selecionado";
@@ -976,18 +695,12 @@
 
 
             botao.disabled = true;
-
-
-
         
             mostrarMensagem(
                 " Profissional selecionada com sucesso."
             );
 
         }
-
-
-
 
         function mostrarMensagem(
             texto
@@ -1005,9 +718,6 @@
 
         }
 
-
-
-
         function fecharMensagem() {
 
 
@@ -1016,10 +726,6 @@
             ).style.display = "none";
 
         }
-
-
-
-        
 
         function continuar() {
 
@@ -1047,9 +753,7 @@
 
         }
 
-
     </script>
-
 
 </body>
 
