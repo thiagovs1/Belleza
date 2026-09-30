@@ -17,22 +17,12 @@ var app = builder.Build();
 
 app.UseCors("Belleza");
 
-
-// ============================================
-// CONEXÃO COM O BANCO
-// ============================================
-
 string conexao =
     "Server=localhost;" +
     "Port=3306;" +
     "Database=Belleza;" +
     "User ID=root;" +
     "Password=;";
-
-
-// ============================================
-// CALENDÁRIO
-// ============================================
 
 app.MapGet(
     "/api/agendamento/calendario",
@@ -51,11 +41,6 @@ app.MapGet(
             new MySqlConnection(conexao);
 
         await connection.OpenAsync();
-
-
-        // ====================================
-        // DURAÇÃO DO SERVIÇO
-        // ====================================
 
         int duracaoServico;
 

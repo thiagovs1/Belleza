@@ -322,13 +322,11 @@ body {
 }
 
 
-.conteudo-promocao {
-
-    position: relative;
-
-    z-index: 2;
-
-    padding: 42px 8px;
+.conteudo-promocao {  
+    position: relative;  
+    z-index: 2;  
+    padding: 30px 8px;  
+    width: 165px; 
 }
 
 
@@ -400,26 +398,16 @@ body {
 
 
 
-.imagem-promocao {
-
-    position: absolute;
-
-    right: -8px;
-
-    bottom: 0;
-
-    width: 125px;
-
-    height: 190px;
-
-    object-fit: cover;
-
-    object-position: center top;
-
-    z-index: 1;
+.imagem-promocao {  
+    position: absolute;  
+    right: -8px;  
+    bottom: 0;  
+    width: 115px;  
+    height: 204px;  
+    object-fit: cover;  
+    object-position: center top;  
+    z-index: 1;  
 }
-
-
 
 
 .area-combos {
