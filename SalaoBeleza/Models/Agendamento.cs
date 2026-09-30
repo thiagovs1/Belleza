@@ -10,9 +10,11 @@ public class Agendamento
 
     public Cliente? Cliente { get; set; }
 
-    public int ServicoId { get; set; }
+    public int ProfissionalId { get; set; }
 
-    public Servico? Servico { get; set; }
+    public Profissional? Profissional { get; set; }
 
     public string Status { get; set; } = "Pendente";
+
+    public List<AgendamentoServico> AgendamentoServicos { get; set; } = new();
 }

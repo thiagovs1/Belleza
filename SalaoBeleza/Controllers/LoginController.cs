@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SalaoBeleza.Services;
 
@@ -21,7 +22,6 @@ public class LoginController : ControllerBase
         try
         {
             string email = "";
-
             string senha = "";
 
             if (dados.TryGetProperty("email", out JsonElement emailElement))
@@ -60,6 +60,18 @@ public class LoginController : ControllerBase
                 });
             }
 
+            Response.Cookies.Append(
+                "clienteId",
+                cliente.Id.ToString(),
+                new CookieOptions
+                {
+                    HttpOnly = true,
+                    SameSite = SameSiteMode.Lax,
+                    Secure = false,
+                    IsEssential = true
+                }
+            );
+
             return Ok(cliente);
         }
         catch (Exception ex)
@@ -71,5 +83,16 @@ public class LoginController : ControllerBase
                 detalhe = ex.InnerException?.Message
             });
         }
+    }
+
+    [HttpPost("sair")]
+    public IActionResult Sair()
+    {
+        Response.Cookies.Delete("clienteId");
+
+        return Ok(new
+        {
+            mensagem = "Logout realizado com sucesso."
+        });
     }
 }

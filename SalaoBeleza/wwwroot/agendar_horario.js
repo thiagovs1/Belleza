@@ -1,172 +1,96 @@
-const API = "http://localhost:5000/api";
+const agendamentoSelecionado =
+    JSON.parse(localStorage.getItem("agendamentoSelecionado"));
 
+const profissionalSelecionado =
+    JSON.parse(localStorage.getItem("profissionalSelecionado"));
 
-// ========================================
-// DADOS DA SELEÇÃO ANTERIOR
-// ========================================
+let profissional = null;
+let servicos = [];
 
-let servico = obterDados("servicoSelecionado");
-let profissional = obterDados("profissionalSelecionado");
+if (agendamentoSelecionado) {
+    profissional =
+        agendamentoSelecionado.profissional ||
+        profissionalSelecionado;
 
+    servicos =
+        agendamentoSelecionado.servicos || [];
+} else {
+    profissional = profissionalSelecionado;
 
-// Caso sua página anterior salve somente o ID
-if (!servico) {
+    const servicoSelecionado =
+        JSON.parse(localStorage.getItem("servicoSelecionado"));
 
-    const idServico =
-        localStorage.getItem("idServico") ||
-        localStorage.getItem("servicoId");
-
-    if (idServico) {
-
-        servico = {
-            id: Number(idServico)
-        };
-
+    if (servicoSelecionado) {
+        servicos = [servicoSelecionado];
     }
-
 }
-
-
-if (!profissional) {
-
-    const idProfissional =
-        localStorage.getItem("idProfissional") ||
-        localStorage.getItem("profissionalId");
-
-    if (idProfissional) {
-
-        profissional = {
-            id: Number(idProfissional)
-        };
-
-    }
-
-}
-
-
-// ========================================
-// DATA ATUAL
-// ========================================
-
-let hoje = new Date();
-
-let mesAtual = hoje.getMonth();
-
-let anoAtual = hoje.getFullYear();
 
 let dataSelecionada = null;
-
 let horarioSelecionado = null;
 
+const mesAtual = document.getElementById("mesAtual");
+const diasCalendario = document.getElementById("diasCalendario");
+const listaHorarios = document.getElementById("listaHorarios");
 
-// ========================================
-// ELEMENTOS
-// ========================================
-
-const calendario =
-    document.getElementById("diasCalendario");
-
-const nomeMes =
-    document.getElementById("mesAtual");
-
-const listaHorarios =
-    document.getElementById("listaHorarios");
+let dataCalendario = new Date();
 
 
-// ========================================
-// INÍCIO
-// ========================================
+function carregarDados() {
 
-document.addEventListener("DOMContentLoaded", async () => {
+    if (!profissional) {
 
-    mostrarResumo();
+        listaHorarios.innerHTML = `
+            <p class="mensagem-horario">
+                Profissional não selecionado.
+            </p>
+        `;
 
-    await carregarCalendario();
-
-});
-
-
-// ========================================
-// PEGAR LOCALSTORAGE
-// ========================================
-
-function obterDados(chave) {
-
-    const dados = localStorage.getItem(chave);
-
-    if (!dados)
-        return null;
-
-    try {
-
-        return JSON.parse(dados);
-
-    } catch {
-
-        return {
-            nome: dados
-        };
-
+        return;
     }
 
+    document.getElementById("resumoProfissional").textContent =
+        profissional.nome || "Não selecionado";
+
+
+    if (servicos.length > 0) {
+
+        const nomes = servicos
+            .map(servico => servico.nome)
+            .join(", ");
+
+        document.getElementById("resumoServico").textContent =
+            nomes;
+
+        const total = servicos.reduce(
+            (soma, servico) =>
+                soma + Number(servico.preco || 0),
+            0
+        );
+
+        document.getElementById("resumoPreco").textContent =
+            "R$ " +
+            total
+                .toFixed(2)
+                .replace(".", ",");
+
+    } else {
+
+        document.getElementById("resumoServico").textContent =
+            "Não selecionado";
+
+        document.getElementById("resumoPreco").textContent =
+            "R$ 0,00";
+    }
 }
 
-
-// ========================================
-// RESUMO
-// ========================================
-
-function mostrarResumo() {
-
-    const campoServico =
-        document.getElementById("resumoServico");
-
-    const campoProfissional =
-        document.getElementById("resumoProfissional");
-
-    const campoPreco =
-        document.getElementById("resumoPreco");
-
-
-    if (servico) {
-
-        campoServico.textContent =
-            servico.nome || "Serviço selecionado";
-
-        if (servico.preco != null) {
-
-            campoPreco.textContent =
-                formatarMoeda(servico.preco);
-
-        }
-
-    }
-
-
-    if (profissional) {
-
-        campoProfissional.textContent =
-            profissional.nome ||
-            "Profissional selecionado";
-
-    }
-
-}
-
-
-// ========================================
-// CALENDÁRIO
-// ========================================
 
 async function carregarCalendario() {
 
-    calendario.innerHTML = "";
+    const ano = dataCalendario.getFullYear();
+    const mes = dataCalendario.getMonth() + 1;
 
-    nomeMes.textContent =
-        new Date(
-            anoAtual,
-            mesAtual
-        ).toLocaleDateString(
+    mesAtual.textContent =
+        dataCalendario.toLocaleDateString(
             "pt-BR",
             {
                 month: "long",
@@ -174,233 +98,156 @@ async function carregarCalendario() {
             }
         );
 
-
-    if (!profissional?.id || !servico?.id) {
-
-        mostrarMensagemCalendario(
-            "Selecione primeiro o serviço e o profissional."
-        );
-
-        return;
-
-    }
-
-
     try {
 
-        const resposta =
-            await fetch(
-                `${API}/agendamento/calendario?` +
-                `profissionalId=${profissional.id}` +
-                `servicoId=${servico.id}` +
-                `ano=${anoAtual}` +
-                `mes=${mesAtual + 1}`
-            );
-
-
-        if (!resposta.ok) {
-
-            throw new Error(
-                "Erro ao consultar o calendário."
-            );
-
-        }
-
-
-        const dados =
-            await resposta.json();
-
-
-        montarDias(
-            dados
+        const resposta = await fetch(
+            `/api/agendamento/calendario?profissionalId=${profissional.id}&ano=${ano}&mes=${mes}`
         );
 
+        const texto = await resposta.text();
+
+        console.log(
+            "CALENDARIO:",
+            resposta.status,
+            texto
+        );
+
+        if (!resposta.ok) {
+            throw new Error(texto);
+        }
+
+        const dias = JSON.parse(texto);
+
+        montarDias(dias);
 
     } catch (erro) {
 
-        console.error(erro);
-
-        mostrarMensagemCalendario(
-            "Não foi possível carregar o calendário."
+        console.error(
+            "ERRO CALENDARIO:",
+            erro
         );
 
+        diasCalendario.innerHTML = `
+            <p>Erro ao carregar calendário.</p>
+        `;
     }
-
 }
 
 
-// ========================================
-// MONTAR DIAS
-// ========================================
+function montarDias(dias) {
 
-function montarDias(dados) {
+    diasCalendario.innerHTML = "";
 
-    calendario.innerHTML = "";
+    const primeiroDia = new Date(
+        dataCalendario.getFullYear(),
+        dataCalendario.getMonth(),
+        1
+    );
 
-    const primeiroDia =
-        new Date(
-            anoAtual,
-            mesAtual,
-            1
-        ).getDay();
-
-
-    const quantidadeDias =
-        new Date(
-            anoAtual,
-            mesAtual + 1,
-            0
-        ).getDate();
-
-
-    // espaços antes do primeiro dia
+    const ultimoDia = new Date(
+        dataCalendario.getFullYear(),
+        dataCalendario.getMonth() + 1,
+        0
+    );
 
     for (
         let i = 0;
-        i < primeiroDia;
+        i < primeiroDia.getDay();
         i++
     ) {
 
         const vazio =
-            document.createElement("span");
+            document.createElement("div");
 
-        vazio.className = "vazio";
-
-        calendario.appendChild(vazio);
-
+        diasCalendario.appendChild(vazio);
     }
 
 
-    // dias
-
     for (
         let dia = 1;
-        dia <= quantidadeDias;
+        dia <= ultimoDia.getDate();
         dia++
     ) {
+
+        const info = dias.find(d => {
+
+            const partes =
+                d.data.split("-");
+
+            return Number(partes[2]) === dia;
+        });
+
 
         const botao =
             document.createElement("button");
 
-
         botao.type = "button";
-
-        botao.className = "dia";
 
         botao.textContent = dia;
 
-
-        const informacao =
-            dados.find(
-                x => Number(x.dia) === dia
-            );
+        botao.classList.add("dia");
 
 
-        if (!informacao) {
-
-            botao.classList.add(
-                "indisponivel"
-            );
-
-            botao.disabled = true;
-
-        }
-
-
-        else if (!informacao.disponivel) {
-
-            botao.classList.add(
-                "indisponivel"
-            );
-
-            botao.disabled = true;
-
-        }
-
-
-        else {
+        if (info && info.disponivel) {
 
             botao.classList.add(
                 "disponivel"
             );
 
-
             botao.addEventListener(
                 "click",
-                () => selecionarData(dia)
+                () => {
+                    selecionarData(
+                        info.data,
+                        botao
+                    );
+                }
             );
 
+        } else {
+
+            botao.classList.add(
+                "indisponivel"
+            );
+
+            botao.disabled = true;
         }
 
 
-        calendario.appendChild(botao);
-
+        diasCalendario.appendChild(botao);
     }
-
 }
 
 
-// ========================================
-// SELECIONAR DATA
-// ========================================
+async function selecionarData(
+    data,
+    botao
+) {
 
-async function selecionarData(dia) {
-
-    dataSelecionada =
-        criarDataISO(
-            anoAtual,
-            mesAtual + 1,
-            dia
+    document
+        .querySelectorAll(".dia.selecionado")
+        .forEach(d =>
+            d.classList.remove("selecionado")
         );
 
+    botao.classList.add(
+        "selecionado"
+    );
+
+    dataSelecionada = data;
 
     horarioSelecionado = null;
 
+    document.getElementById(
+        "resumoDataHorario"
+    ).textContent =
+        formatarData(data);
 
-    document
-        .querySelectorAll(".dia")
-        .forEach(botao => {
-
-            botao.classList.remove(
-                "escolhido"
-            );
-
-        });
-
-
-    const botoes =
-        document.querySelectorAll(".dia");
-
-
-    for (const botao of botoes) {
-
-        if (
-            Number(botao.textContent) === dia
-        ) {
-
-            botao.classList.add(
-                "escolhido"
-            );
-
-            break;
-
-        }
-
-    }
-
-
-    atualizarResumoData();
-
-    await carregarHorarios();
-
+    await carregarHorarios(data);
 }
 
 
-// ========================================
-// HORÁRIOS
-// ========================================
-
-async function carregarHorarios() {
+async function carregarHorarios(data) {
 
     listaHorarios.innerHTML = `
         <p class="mensagem-horario">
@@ -409,249 +256,195 @@ async function carregarHorarios() {
     `;
 
 
-    if (!dataSelecionada) {
+    if (!profissional) {
+
+        listaHorarios.innerHTML = `
+            <p class="mensagem-horario">
+                Profissional não selecionado.
+            </p>
+        `;
 
         return;
+    }
 
+
+    const servicoIds =
+        servicos
+            .map(servico => Number(servico.id))
+            .filter(id => id > 0);
+
+
+    if (servicoIds.length === 0) {
+
+        listaHorarios.innerHTML = `
+            <p class="mensagem-horario">
+                Nenhum serviço selecionado.
+            </p>
+        `;
+
+        return;
     }
 
 
     try {
 
+        const parametros =
+            servicoIds
+                .map(id =>
+                    `servicoIds=${encodeURIComponent(id)}`
+                )
+                .join("&");
+
+
+        const url =
+            `/api/agendamento/horarios-multiplos?profissionalId=${encodeURIComponent(profissional.id)}&${parametros}&data=${encodeURIComponent(data)}`;
+
+
+        console.log(
+            "URL HORÁRIOS:",
+            url
+        );
+
+
         const resposta =
-            await fetch(
-                `${API}/agendamento/horarios?` +
-                `profissionalId=${profissional.id}` +
-                `servicoId=${servico.id}` +
-                `data=${dataSelecionada}`
-            );
+            await fetch(url);
+
+
+        const texto =
+            await resposta.text();
+
+
+        console.log(
+            "STATUS HORÁRIOS:",
+            resposta.status
+        );
+
+        console.log(
+            "RESPOSTA HORÁRIOS:",
+            texto
+        );
 
 
         if (!resposta.ok) {
 
             throw new Error(
-                "Erro ao carregar horários."
+                texto || "Erro na API."
             );
-
         }
 
 
         const horarios =
-            await resposta.json();
+            JSON.parse(texto);
 
 
-        montarHorarios(
-            horarios
-        );
+        listaHorarios.innerHTML = "";
+
+
+        if (
+            !horarios ||
+            horarios.length === 0
+        ) {
+
+            listaHorarios.innerHTML = `
+                <p class="mensagem-horario">
+                    Não há horários disponíveis para esta data.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        horarios.forEach(horario => {
+
+            const botao =
+                document.createElement("button");
+
+            botao.type = "button";
+
+            botao.classList.add(
+                "horario"
+            );
+
+            botao.textContent =
+                `${horario.inicio} - ${horario.fim}`;
+
+
+            botao.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(
+                            ".horario.selecionado"
+                        )
+                        .forEach(h =>
+                            h.classList.remove(
+                                "selecionado"
+                            )
+                        );
+
+
+                    botao.classList.add(
+                        "selecionado"
+                    );
+
+
+                    horarioSelecionado =
+                        horario;
+
+
+                    document.getElementById(
+                        "resumoDataHorario"
+                    ).textContent =
+                        `${formatarData(data)} - ${horario.inicio}`;
+                }
+            );
+
+
+            listaHorarios.appendChild(
+                botao
+            );
+        });
 
 
     } catch (erro) {
 
-        console.error(erro);
-
-        listaHorarios.innerHTML = `
-            <p class="mensagem-horario">
-                Não foi possível carregar os horários.
-            </p>
-        `;
-
-    }
-
-}
-
-
-// ========================================
-// MONTAR HORÁRIOS
-// ========================================
-
-function montarHorarios(horarios) {
-
-    listaHorarios.innerHTML = "";
-
-
-    if (
-        !horarios ||
-        horarios.length === 0
-    ) {
-
-        listaHorarios.innerHTML = `
-            <p class="mensagem-horario">
-                Não há horários disponíveis
-                para esse serviço neste dia.
-            </p>
-        `;
-
-        return;
-
-    }
-
-
-    horarios.forEach(horario => {
-
-        const botao =
-            document.createElement("button");
-
-
-        botao.type = "button";
-
-        botao.className = "horario";
-
-
-        botao.textContent =
-            `${horario.inicio} - ${horario.fim}`;
-
-
-        if (!horario.disponivel) {
-
-            botao.disabled = true;
-
-            botao.classList.add(
-                "indisponivel"
-            );
-
-        }
-
-        else {
-
-            botao.addEventListener(
-                "click",
-                () => selecionarHorario(
-                    horario,
-                    botao
-                )
-            );
-
-        }
-
-
-        listaHorarios.appendChild(
-            botao
-        );
-
-    });
-
-}
-
-
-// ========================================
-// SELECIONAR HORÁRIO
-// ========================================
-
-function selecionarHorario(
-    horario,
-    botao
-) {
-
-    horarioSelecionado =
-        horario;
-
-
-    document
-        .querySelectorAll(".horario")
-        .forEach(item => {
-
-            item.classList.remove(
-                "escolhido-horario"
-            );
-
-        });
-
-
-    botao.classList.add(
-        "escolhido-horario"
-    );
-
-
-    atualizarResumoData();
-
-}
-
-
-// ========================================
-// RESUMO DATA/HORA
-// ========================================
-
-function atualizarResumoData() {
-
-    const campo =
-        document.getElementById(
-            "resumoDataHorario"
+        console.error(
+            "ERRO HORÁRIOS:",
+            erro
         );
 
 
-    if (
-        !dataSelecionada ||
-        !horarioSelecionado
-    ) {
-
-        if (dataSelecionada) {
-
-            campo.textContent =
-                formatarData(dataSelecionada);
-
-        } else {
-
-            campo.textContent =
-                "Não selecionado";
-
-        }
-
-        return;
-
+        listaHorarios.innerHTML = `
+            <p class="mensagem-horario">
+                Erro ao carregar horários.
+            </p>
+        `;
     }
-
-
-    campo.textContent =
-        `${formatarData(dataSelecionada)}
-         - ${horarioSelecionado.inicio}
-         às ${horarioSelecionado.fim}`;
-
 }
 
 
-// ========================================
-// MUDAR MÊS
-// ========================================
+function formatarData(data) {
+
+    const partes =
+        data.split("-");
+
+    return `${partes[2]}/${partes[1]}/${partes[0]}`;
+}
+
 
 document
     .getElementById("mesAnterior")
     .addEventListener(
         "click",
-        async () => {
+        () => {
 
-            mesAtual--;
+            dataCalendario.setMonth(
+                dataCalendario.getMonth() - 1
+            );
 
-            if (mesAtual < 0) {
-
-                mesAtual = 11;
-
-                anoAtual--;
-
-            }
-
-
-            dataSelecionada = null;
-
-            horarioSelecionado = null;
-
-            document
-                .getElementById(
-                    "resumoDataHorario"
-                )
-                .textContent =
-                "Não selecionado";
-
-
-            listaHorarios.innerHTML = `
-                <p class="mensagem-horario">
-                    Selecione uma data para
-                    visualizar os horários.
-                </p>
-            `;
-
-
-            await carregarCalendario();
-
+            carregarCalendario();
         }
     );
 
@@ -660,49 +453,16 @@ document
     .getElementById("mesProximo")
     .addEventListener(
         "click",
-        async () => {
+        () => {
 
-            mesAtual++;
+            dataCalendario.setMonth(
+                dataCalendario.getMonth() + 1
+            );
 
-            if (mesAtual > 11) {
-
-                mesAtual = 0;
-
-                anoAtual++;
-
-            }
-
-
-            dataSelecionada = null;
-
-            horarioSelecionado = null;
-
-
-            document
-                .getElementById(
-                    "resumoDataHorario"
-                )
-                .textContent =
-                "Não selecionado";
-
-
-            listaHorarios.innerHTML = `
-                <p class="mensagem-horario">
-                    Selecione uma data para
-                    visualizar os horários.
-                </p>
-            `;
-
-
-            await carregarCalendario();
-
+            carregarCalendario();
         }
     );
 
-
-// ========================================
-// CONTINUAR
-// ========================================
 
 document
     .getElementById("btnContinuar")
@@ -710,68 +470,32 @@ document
         "click",
         () => {
 
-            if (!servico?.id) {
+            if (
+                !dataSelecionada ||
+                !horarioSelecionado
+            ) {
 
                 alert(
-                    "Nenhum serviço foi selecionado."
+                    "Selecione uma data e um horário."
                 );
 
                 return;
-
-            }
-
-
-            if (!profissional?.id) {
-
-                alert(
-                    "Nenhum profissional foi selecionado."
-                );
-
-                return;
-
-            }
-
-
-            if (!dataSelecionada) {
-
-                alert(
-                    "Selecione uma data."
-                );
-
-                return;
-
-            }
-
-
-            if (!horarioSelecionado) {
-
-                alert(
-                    "Selecione um horário."
-                );
-
-                return;
-
             }
 
 
             const agendamento = {
 
-                servicoId: servico.id,
+                profissional:
+                    profissional,
 
-                profissionalId:
-                    profissional.id,
+                servicos:
+                    servicos,
 
-                data: dataSelecionada,
+                data:
+                    dataSelecionada,
 
-                inicio:
-                    horarioSelecionado.inicio,
-
-                fim:
-                    horarioSelecionado.fim,
-
-                preco:
-                    servico.preco || 0
-
+                horario:
+                    horarioSelecionado
             };
 
 
@@ -784,67 +508,11 @@ document
 
 
             window.location.href =
-                "tela_pg.html";
-
+                "confirmar_agendamento.html";
         }
     );
 
 
-// ========================================
-// FUNÇÕES AUXILIARES
-// ========================================
+carregarDados();
 
-function criarDataISO(
-    ano,
-    mes,
-    dia
-) {
-
-    return `${ano}-${String(mes).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
-
-}
-
-
-function formatarData(data) {
-
-    const partes =
-        data.split("-");
-
-    return `${partes[2]}/${partes[1]}/${partes[0]}`;
-
-}
-
-
-function formatarMoeda(valor) {
-
-    return Number(valor).toLocaleString(
-        "pt-BR",
-        {
-            style: "currency",
-            currency: "BRL"
-        }
-    );
-
-}
-
-
-function mostrarMensagemCalendario(
-    mensagem
-) {
-
-    calendario.innerHTML = "";
-
-    const p =
-        document.createElement("p");
-
-    p.textContent = mensagem;
-
-    p.style.gridColumn = "1 / -1";
-
-    p.style.textAlign = "center";
-
-    p.style.color = "#91425f";
-
-    calendario.appendChild(p);
-
-}
+carregarCalendario();

@@ -15,18 +15,20 @@
 
 <body>
 
-    <aside class="sidebar" style="
-        width: 190px !important;
-        height: 100vh !important;
-        min-height: 100vh !important;
-        max-width: 190px !important;
-        position: fixed !important;
-        left: 0 !important;
-        top: 0 !important;
-        bottom: auto !important;
-        display: block !important;
-        overflow: hidden !important;
-        z-index: 9999 !important;">
+    <aside class="sidebar"
+           style="
+                width: 190px !important;
+                height: 100vh !important;
+                min-height: 100vh !important;
+                max-width: 190px !important;
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                bottom: auto !important;
+                display: block !important;
+                overflow: hidden !important;
+                z-index: 9999 !important;
+           ">
 
         <div class="logo-area">
             <img src="imagens/logo_belleza.png"
@@ -106,6 +108,7 @@
 
                 <div class="area-agendamento">
 
+
                     <!-- CALENDÁRIO -->
 
                     <section class="calendario">
@@ -118,16 +121,28 @@
 
                         <div class="mes">
 
-                            <button type="button" id="mesAnterior">
+                            <button
+                                type="button"
+                                id="mesAnterior"
+                                aria-label="Mês anterior">
+
                                 &lt;
+
                             </button>
+
 
                             <span id="mesAtual">
                                 Carregando...
                             </span>
 
-                            <button type="button" id="mesProximo">
+
+                            <button
+                                type="button"
+                                id="mesProximo"
+                                aria-label="Próximo mês">
+
                                 &gt;
+
                             </button>
 
                         </div>
@@ -146,8 +161,15 @@
                         </div>
 
 
-                        <div class="dias" id="diasCalendario">
-                            <!-- JavaScript cria os dias aqui -->
+                        <div
+                            class="dias"
+                            id="diasCalendario">
+
+                            <!--
+                                O JavaScript vai criar
+                                os dias disponíveis aqui.
+                            -->
+
                         </div>
 
 
@@ -182,7 +204,10 @@
                             Selecione o horário
                         </h2>
 
-                        <div class="lista-horarios" id="listaHorarios">
+
+                        <div
+                            class="lista-horarios"
+                            id="listaHorarios">
 
                             <p class="mensagem-horario">
                                 Selecione uma data para visualizar os horários.
@@ -195,7 +220,7 @@
 
                             <div>
                                 <span class="bolinha horario-indisponivel"></span>
-                                <span>horário indisponível</span>
+                                <span>Horário indisponível</span>
                             </div>
 
                             <div>
@@ -226,6 +251,8 @@
                 </h2>
 
 
+                <!-- SERVIÇO -->
+
                 <div class="resumo-item">
 
                     <div class="resumo-icone">
@@ -242,10 +269,14 @@
 
                     </div>
 
-                    <span class="seta">›</span>
+                    <span class="seta">
+                        ›
+                    </span>
 
                 </div>
 
+
+                <!-- PROFISSIONAL -->
 
                 <div class="resumo-item">
 
@@ -263,10 +294,14 @@
 
                     </div>
 
-                    <span class="seta">›</span>
+                    <span class="seta">
+                        ›
+                    </span>
 
                 </div>
 
+
+                <!-- DATA E HORÁRIO -->
 
                 <div class="resumo-item">
 
@@ -284,14 +319,20 @@
 
                     </div>
 
-                    <span class="seta">›</span>
+                    <span class="seta">
+                        ›
+                    </span>
 
                 </div>
 
 
+                <!-- TOTAL -->
+
                 <div class="total">
 
-                    <span>Total do atendimento</span>
+                    <span>
+                        Total do atendimento
+                    </span>
 
                     <strong id="resumoPreco">
                         R$ 0,00
@@ -300,19 +341,27 @@
                 </div>
 
 
-                <button type="button"
-                        class="btn-continuar"
-                        id="btnContinuar">
+                <!-- CONTINUAR -->
+
+                <button
+                    type="button"
+                    class="btn-continuar"
+                    id="btnContinuar">
 
                     continuar
 
-                    <span>➜</span>
+                    <span>
+                        ➜
+                    </span>
 
                 </button>
 
 
-                <a href="servicos.html"
-                   class="btn-adicionar">
+                <!-- ADICIONAR SERVIÇO -->
+
+                <a
+                    href="servicos.html"
+                    class="btn-adicionar">
 
                     adicionar mais serviços
 
@@ -339,6 +388,8 @@
 
     </main>
 
+
+    <!-- JAVASCRIPT DO AGENDAMENTO -->
 
     <script src="agendar_horario.js"></script>
 
